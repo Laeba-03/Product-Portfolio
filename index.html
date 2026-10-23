@@ -1,354 +1,2410 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Laeba | Product Manager</title>
-<meta name="description" content="Laeba is an Assistant Product Manager building AI products where human expertise matters.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f5f6fa;--panel:#ffffff;--line:#d9deea;--text:#0b1020;--muted:#4c5876;--accent:#2b55d6;--signal:#b86a00;--signalbg:#fff1d6;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#020617;--panel:#0a1226;--line:#1b2744;--text:#e8ecf6;--muted:#93a0bd;--accent:#8fb4ff;--signal:#ffb84d;--signalbg:#2a2111}}
-:root[data-theme="dark"]{--bg:#020617;--panel:#0a1226;--line:#1b2744;--text:#e8ecf6;--muted:#93a0bd;--accent:#8fb4ff;--signal:#ffb84d;--signalbg:#2a2111}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.65}
-h1,h2,h3{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:500;line-height:1.12;margin:0}
-a{color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px}
-header strong{font-family:"Newsreader",Georgia,serif;font-size:21px;font-weight:600}
-nav{display:flex;gap:20px;align-items:center;font-size:15px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none}
-nav a:hover{color:var(--text)}
-#theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:4px 10px;font:inherit;font-size:14px;cursor:pointer}
-.hero{padding:64px 0 48px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
-.hero h1{font-size:clamp(40px,6.4vw,68px);letter-spacing:-.02em}
-.hero p{color:var(--muted);max-width:52ch;margin:20px 0 0}
-.hero .facts{color:var(--text);margin-top:16px}
-.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-block;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--text)}
-.btn.main{background:var(--accent);border-color:var(--accent);color:#020617}
-.demo{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
-.demo h3{font-size:20px}
-.demo small{color:var(--muted);display:block;margin-top:2px}
-.week{list-style:none;margin:14px 0;padding:0;display:grid;gap:6px}
-.week li{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:15px}
-.week li span:first-child{color:var(--muted)}
-.week li.edited{background:var(--signalbg);border-color:var(--signal)}
-.tag{font-size:13px;color:var(--signal);font-weight:600}
-#edit{width:100%;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:8px;padding:10px;font:inherit;font-weight:600;cursor:pointer}
-#edit:hover{background:var(--accent);color:#020617}
-section{padding:56px 0;border-top:1px solid var(--line)}
-section>.wrap>h2{font-size:clamp(30px,4.4vw,42px);margin-bottom:8px}
-.lede{color:var(--muted);max-width:60ch;margin:0 0 28px}
-.case{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-top:28px}
-.case aside{color:var(--muted);font-size:15px}
-.case aside b{color:var(--text);display:block;font-family:"Newsreader",Georgia,serif;font-size:22px;font-weight:500;margin-bottom:4px}
-.case h3{font-size:24px;margin:30px 0 8px}
-.case h3:first-child{margin-top:0}
-.case p,.case li{max-width:68ch}
-.case ul{padding-left:20px;margin:8px 0}
-.case li{margin-bottom:6px}
-.note{border-left:3px solid var(--signal);padding:2px 0 2px 14px;color:var(--muted);margin:20px 0;max-width:68ch}
-.more{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:36px;margin-top:40px}
-.more h3{font-size:24px;margin-bottom:6px}
-.more p{color:var(--muted);margin:0}
-.tear{margin-top:32px;padding-top:28px;border-top:1px solid var(--line)}
-.tear:first-of-type{border-top:0;padding-top:0;margin-top:20px}
-.tear h3{font-size:28px;margin-bottom:4px}
-.tear .sub{color:var(--muted);margin:0 0 14px;font-style:italic;font-family:"Newsreader",Georgia,serif;font-size:19px}
-.tear p{max-width:68ch;margin:0 0 12px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chips span{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;color:var(--muted)}
-footer{padding:48px 0 64px;border-top:1px solid var(--line)}
-footer h2{font-size:34px;margin-bottom:12px}
-@media (max-width:820px){.hero{grid-template-columns:1fr;gap:32px;padding-top:40px}.case{grid-template-columns:1fr;gap:12px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#583b32">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="dresserie — Drop an outfit you're obsessed with and we'll decode the vibe and find your wearable Indian version on Myntra, Ajio, and Zara India.">
+  <title>dresserie — Found the fit</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Mono:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --cream: #f9dce1;
+      --ink: #261b20;
+      --brown: #583b32;
+      --pink: #f5c6cf;
+      --pink2: #f8e2e3;
+      --red: #bc3342;
+      --red-hover: #9c2533;
+      --yellow: #ffe596;
+      --blue: #dcebf0;
+      --lav: #e9def5;
+      --sage: #dceca6;
+      --line: #e8cbd1;
+      --muted: #786d6d;
+    }
 
-.top{padding:56px 24px 8px}
-.top h1{font-size:clamp(38px,6.4vw,76px);letter-spacing:-.02em;max-width:18ch}
-.top p{color:var(--muted);max-width:56ch;margin:20px 0 0}
-.fan{position:relative;height:clamp(280px,40vw,430px);max-width:1040px;margin:28px auto 0;overflow:hidden}
-.card{position:absolute;left:50%;top:24px;width:clamp(130px,21vw,210px);aspect-ratio:5/8;border-radius:16px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;text-decoration:none;background:linear-gradient(160deg,var(--c1),var(--c2));transform:translateX(calc(-50% + var(--k)*min(11.5vw,125px))) rotate(calc(var(--k)*7deg));transform-origin:50% 130%;animation:fan .9s cubic-bezier(.2,.8,.2,1) both;box-shadow:0 18px 40px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.14)}
-.card span{font-size:13px;opacity:.85}
-.card b{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(17px,2.4vw,24px);line-height:1.1}
-.card:hover{filter:brightness(1.12)}
-@keyframes fan{from{transform:translateX(-50%) rotate(0)}}
-section.band{padding:36px 0}
-.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px}
-.nums b{display:block;font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(44px,6vw,64px);line-height:1}
-.nums span{color:var(--muted);font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.proj{display:block;border:1px solid var(--line);border-radius:12px;padding:20px;text-decoration:none;color:var(--text);background:var(--panel)}
-.proj:hover{border-color:var(--accent)}
-.proj h3{font-size:24px;margin-bottom:6px}
-.proj p{color:var(--muted);margin:0 0 14px;font-size:15.5px}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tags span{border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:13px;color:var(--muted)}
-.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 40px}
-.svc h3{font-size:22px;margin-bottom:4px}
-.svc p{margin:0;color:var(--muted)}
-#approach{counter-reset:q}
-details{border-top:1px solid var(--line);padding:16px 0}
-details:last-of-type{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font-family:"Newsreader",Georgia,serif;font-size:22px;list-style:none;display:flex;gap:16px;align-items:baseline}
-summary::-webkit-details-marker{display:none}
-summary::before{counter-increment:q;content:counter(q,decimal-leading-zero);color:var(--muted);font-family:"Instrument Sans",system-ui,sans-serif;font-size:15px}
-details p{max-width:68ch;color:var(--muted);margin:10px 0 0 38px}
-@media (max-width:820px){.card{top:16px}}
-@media (prefers-reduced-motion:reduce){.card{animation:none}}
-section.pg{border-top:0;padding-top:36px}
-.pg h1{font-size:clamp(36px,5.6vw,60px);letter-spacing:-.02em;margin-bottom:8px}
-.back{display:inline-block;margin-bottom:20px;font-size:15px;color:var(--muted)}
-#about+section,section#approach{border-top:1px solid var(--line)}
-.page[hidden]{display:none}
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-.proj{border-top:4px solid var(--pc,var(--line));background:linear-gradient(165deg,color-mix(in srgb,var(--pc,transparent) 16%,var(--panel)),var(--panel))}
-.proj:hover{border-color:var(--pc,var(--accent))}
-.proj .tags span{border-color:color-mix(in srgb,var(--pc,var(--line)) 55%,var(--line))}
-.proj:nth-child(1){--pc:#7b61ff}.proj:nth-child(2){--pc:#14a39a}.proj:nth-child(3){--pc:#e08a2e}.proj:nth-child(4){--pc:#3f78e0}.proj:nth-child(5){--pc:#d94a86}
-.dd{position:relative;border:0;padding:0}
-.dd summary{font-family:"Instrument Sans",system-ui,sans-serif;font-size:15px;color:var(--muted);display:flex;align-items:center;gap:7px}
-.dd summary::before{content:none}
-.dd summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
-.dd summary:hover,.dd[open] summary{color:var(--text)}
-.dd .menu{position:absolute;top:calc(100% + 12px);left:-14px;min-width:170px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px;display:flex;flex-direction:column;box-shadow:0 14px 32px rgba(0,0,0,.28)}
-.dd .menu a{padding:8px 12px;border-radius:6px;color:var(--text);white-space:nowrap}
-.dd .menu a:hover{background:var(--line)}
-.tbl{overflow-x:auto;margin:16px 0 4px;max-width:100%}
-.tbl table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
-.tbl th,.tbl td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.tbl thead th{color:var(--muted);font-weight:600}
-.tbl td:last-child{color:var(--accent);font-weight:600}
-.cap{font-size:14px;color:var(--muted);margin:8px 0 0}
+    body {
+      margin: 0;
+      background: #e2c1c8;
+      color: var(--ink);
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      -webkit-font-smoothing: antialiased;
+    }
 
-section.how{--hb:#f6f2ea;--hc:#fffdf9;--ht:#15181e;--hm:#585c66;--hl:#d9d2c4;background:var(--hb);color:var(--ht);border-top:0;padding:52px 0 40px}
-.how h2{font-size:clamp(30px,4.2vw,40px);margin:0 0 6px;color:var(--ht)}
-.how .lede{color:var(--hm);margin:0}
-.how-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:26px}
-.how-ctl{display:flex;gap:8px}
-.how-ctl button{width:40px;height:40px;border:1px solid var(--hl);background:var(--hc);color:var(--ht);border-radius:999px;display:grid;place-items:center;cursor:pointer;transition:border-color .2s ease}
-.how-ctl button:hover:not(:disabled){border-color:var(--ht)}
-.how-ctl button:disabled{opacity:.35;cursor:default}
-.how button:focus-visible,.track:focus-visible{outline:2px solid var(--ht);outline-offset:3px}
-.track{--gap:16px;display:flex;gap:var(--gap);list-style:none;margin:0;padding:6px 2px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
-.track::-webkit-scrollbar{display:none}
-.track.drag{scroll-snap-type:none;cursor:grabbing;user-select:none}
-.hcard{flex:0 0 calc((100% - 3 * var(--gap)) / 3.35);scroll-snap-align:start;background:var(--hc);border:1px solid var(--hl);border-radius:8px;padding:20px 20px 22px;min-height:236px;display:flex;flex-direction:column;transition:transform .22s ease,border-color .22s ease}
-.hcard:hover{transform:translateY(-3px);border-color:var(--ht)}
-.hcard .no{font-size:13px;color:var(--hm);font-variant-numeric:tabular-nums;letter-spacing:.04em}
-.hcard .tt{margin-top:14px;font-weight:600;font-size:15px}
-.hcard h3{font-size:25px;line-height:1.15;margin:6px 0 10px;color:var(--ht)}
-.hcard p{margin:0;color:var(--hm);font-size:15px;line-height:1.5}
-.dots{display:flex;justify-content:center;margin-top:16px}
-.dots button{width:22px;height:22px;border:0;background:none;cursor:pointer;display:grid;place-items:center;padding:0}
-.dots button::before{content:"";width:8px;height:8px;border-radius:50%;border:1px solid var(--ht)}
-.dots button[aria-current="true"]::before{background:var(--ht)}
-@media (max-width:820px){.hcard{flex-basis:82%}}
-@media (prefers-reduced-motion:reduce){.hcard,.how-ctl button{transition:none}.hcard:hover{transform:none}}
+    button {
+      font: inherit;
+      cursor: pointer;
+      color: inherit;
+      border: 0;
+      background: none;
+      transition: all 0.18s ease;
+      touch-action: manipulation;
+    }
 
-.hcard{background:var(--t,var(--hc));border-top:4px solid var(--c,var(--hl))}
-.hcard:hover{border-color:var(--c,var(--ht))}
-.hcard .no::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--c,var(--ht));margin-right:8px}
-.hcard:nth-child(1){--c:#6b4fe6;--t:#ece8ff}
-.hcard:nth-child(2){--c:#0e8f86;--t:#dff5f2}
-.hcard:nth-child(3){--c:#c9701a;--t:#fbebd6}
-.hcard:nth-child(4){--c:#2f6bd6;--t:#e0ebfb}
-.hcard:nth-child(5){--c:#c93a78;--t:#fbe1ec}
-.hcard:nth-child(6){--c:#3f8f4a;--t:#e1f2e3}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.flow{max-width:1040px;margin:30px auto 0;padding:0 24px}
-.steps{--ov:clamp(12px,1.9vw,20px);list-style:none;margin:0;padding:14px 0 10px;display:flex;justify-content:center;align-items:center}
-.steps:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.st{--w:clamp(150px,18.4vw,196px);--h:clamp(186px,20vw,222px);position:relative;flex:0 0 auto;width:var(--w);height:var(--h);margin-left:calc(-1 * var(--ov));padding:16px calc(var(--ov) + 14px);border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;color:#eaf0ff;border:1px solid rgba(255,255,255,.1);box-shadow:0 14px 30px rgba(1,6,20,.4);transform:translateY(var(--y,0)) rotate(var(--r,0deg));animation:rise .7s ease both;animation-delay:var(--d,0s)}
-.st:first-child{margin-left:0}
-.lab{font-family:"Instrument Sans",system-ui,sans-serif;font-size:13.5px;font-weight:600;display:flex;gap:8px;align-items:baseline}
-.lab i{font-style:normal;font-weight:500;opacity:.65;font-size:12px;font-variant-numeric:tabular-nums}
-.ph{font-family:"Newsreader",Georgia,serif;font-size:clamp(17px,1.9vw,21px);line-height:1.15;font-weight:500}
-.s1{--r:-2.4deg;--y:10px;--d:.05s;z-index:1;background:#0d1a33;border-color:rgba(143,180,255,.22)}
-.s2{--r:-1.2deg;--y:4px;--d:.1s;z-index:2;background:#1b3560}
-.s3{--w:clamp(176px,21.6vw,232px);--h:clamp(214px,24vw,256px);--r:0deg;--y:-4px;--d:0s;z-index:4;background:#137a7d;color:#ecfffe;border-color:rgba(255,255,255,.22);box-shadow:0 22px 46px rgba(1,6,20,.55)}
-.s3 .ph{font-size:clamp(20px,2.3vw,26px)}
-.s4{--r:1.2deg;--y:4px;--d:.15s;z-index:2;background:#4d4789}
-.s5{--r:2.4deg;--y:10px;--d:.2s;z-index:1;background:#162b52;border-color:rgba(143,180,255,.2)}
-.cap-flow{text-align:center;margin:10px 0 0;font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:19px;color:var(--muted)}
-@keyframes rise{from{opacity:0}}
-@media (max-width:820px){
-.flow{padding:0}
-.steps{justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;gap:10px;padding:10px 24px 14px;scrollbar-width:none}
-.steps::-webkit-scrollbar{display:none}
-.st,.s3{width:158px;height:176px;margin-left:0;padding:14px;transform:none;scroll-snap-align:start;box-shadow:0 8px 20px rgba(1,6,20,.35)}
-.ph,.s3 .ph{font-size:19px}
-.cap-flow{padding:0 24px;text-align:left}
-}
-@media (prefers-reduced-motion:reduce){.st{animation:none}}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-section.how{--hb:var(--bg);--hc:var(--panel);--ht:var(--text);--hm:var(--muted);--hl:var(--line);background:var(--bg);color:var(--text);border-top:1px solid var(--line);padding:56px 0}
-.hcard{background:var(--panel);background:color-mix(in srgb,var(--c,transparent) 14%,var(--panel))}
+    .app {
+      max-width: 480px;
+      width: 100%;
+      background: var(--cream);
+      min-height: 100vh;
+      padding-bottom: 79px;
+      position: relative;
+      overflow-x: hidden;
+      box-shadow: 0 0 50px rgba(88, 59, 50, 0.22);
+    }
 
-header nav{margin-left:auto}
-#theme{margin-left:18px}
-@media (max-width:820px){
-header .wrap{flex-wrap:wrap;row-gap:0;padding-top:8px;padding-bottom:4px;min-height:0}
-#theme{margin-left:auto;order:2}
-header strong{order:1}
-header nav{order:3;width:100%;margin-left:0;justify-content:space-between;gap:10px;font-size:14.5px;padding:6px 0 8px}
-.dd .menu{left:0}
-.steps{scroll-padding-left:24px}
-}
+    /* Top Bar */
+    .top {
+      height: 70px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--brown);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-@media (max-width:820px){.track{margin-right:-24px;padding-right:24px}}
-</style>
+    .brand.logo-wordmark {
+      font: 600 29px/0.75 "Playfair Display", serif;
+      letter-spacing: -2.4px;
+      display: flex;
+      align-items: flex-start;
+      color: #fff1f3;
+      text-decoration: none;
+      user-select: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .brand.logo-wordmark .logo-soft {
+      font-style: italic;
+      color: var(--yellow);
+      letter-spacing: -2.9px;
+    }
+
+    .top-action-btn {
+      border: 1px solid #fff1f3;
+      border-radius: 50%;
+      height: 38px;
+      width: 38px;
+      background: #fff1f3;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      color: var(--brown);
+      position: relative;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-left: auto;
+    }
+
+    .top-action-btn:hover {
+      transform: scale(1.05);
+      background: #ffffff;
+    }
+
+    .top-action-btn .badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--red);
+      color: #fff;
+      font: 600 9px "DM Mono", monospace;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 3px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--brown);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 24px 18px 0;
+      position: relative;
+      background: linear-gradient(119deg, #f9dce1 55%, #f4cbd2);
+    }
+
+    .kicker {
+      font: 600 10px/1 "DM Mono", monospace;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kicker::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font: 600 45px/0.95 "Playfair Display", serif;
+      letter-spacing: -2.9px;
+      margin: 9px 0 14px;
+      max-width: 360px;
+    }
+
+    h1 em {
+      color: var(--red);
+      font-style: italic;
+    }
+
+    .hero-copy {
+      margin: 0;
+      line-height: 1.45;
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 345px;
+    }
+
+    /* Rotated Prompt Card Stack */
+    .prompt-stack {
+      height: 254px;
+      margin-top: 19px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .prompt-card {
+      position: absolute;
+      border: 0;
+      background: #fff9f8;
+      color: var(--brown);
+      text-align: left;
+      padding: 13px 12px;
+      width: 154px;
+      min-height: 94px;
+      box-shadow: 0 8px 0 #d9abb6, 0 13px 22px rgba(98, 51, 67, 0.16);
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .prompt-card b {
+      font: 600 18px/1.05 "Playfair Display", serif;
+      display: block;
+      color: var(--ink);
+    }
+
+    .prompt-card small {
+      font: 600 9px "DM Mono", monospace;
+      letter-spacing: 0.5px;
+      color: var(--red);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .prompt-card::after {
+      position: absolute;
+      right: 9px;
+      top: 6px;
+      font: 600 20px "Caveat", cursive;
+      color: var(--red);
+    }
+
+    .prompt-card[data-vibe="date-night"] {
+      left: 12px;
+      top: 22px;
+      transform: rotate(-4deg);
+      background: #fff4f5;
+    }
+    .prompt-card[data-vibe="date-night"]::after { content: "♡"; }
+
+    .prompt-card[data-vibe="screenshot"] {
+      left: 188px;
+      top: 12px;
+      width: 164px;
+      min-height: 104px;
+      transform: rotate(3deg);
+      background: #fffaf0;
+    }
+    .prompt-card[data-vibe="screenshot"]::after { content: "✦"; }
+
+    .prompt-card[data-vibe="budget"] {
+      left: 43px;
+      top: 138px;
+      transform: rotate(3deg);
+      background: #eff4fb;
+    }
+    .prompt-card[data-vibe="budget"]::after { content: "🏷"; font-size: 15px; }
+
+    .prompt-card[data-vibe="core"] {
+      left: 220px;
+      top: 139px;
+      width: 166px;
+      min-height: 94px;
+      transform: rotate(-3deg);
+      background: #f2eafa;
+    }
+    .prompt-card[data-vibe="core"]::after { content: "✦"; }
+
+    .prompt-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 11px 0 #cfa0ac, 0 16px 26px rgba(98, 51, 67, 0.22);
+    }
+
+    .prompt-card.active {
+      transform: translateY(-6px) rotate(0deg);
+      outline: 2.5px solid var(--red);
+      box-shadow: 0 12px 0 #c795a2, 0 18px 28px rgba(98, 51, 67, 0.25);
+      z-index: 5 !important;
+    }
+
+    .prompt-stack .scribble {
+      position: absolute;
+      z-index: 4;
+      font: 600 20px "Caveat", cursive;
+      color: var(--red);
+      right: 11px;
+      top: 112px;
+      transform: rotate(-5deg);
+      pointer-events: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .prompt-stack .star {
+      position: absolute;
+      z-index: 5;
+      color: #b67722;
+      font-size: 24px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .prompt-stack .s1 { left: 169px; top: 54px; }
+    .prompt-stack .s2 { right: 28px; bottom: 13px; }
+
+    /* Upload Area */
+    .upload-area {
+      padding: 18px;
+      background: #f9dce1;
+    }
+
+    .drop {
+      border: 1.5px dashed #dbaeb7;
+      border-radius: 18px;
+      background: #fff5f5;
+      padding: 22px 16px 20px;
+      text-align: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .drop:hover, .drop.dragover {
+      border-color: var(--red);
+      background: #fff0f3;
+      transform: scale(0.99);
+    }
+
+    .drop .tiny {
+      font: 600 18px "Caveat", cursive;
+      color: var(--red);
+      margin-bottom: 2px;
+    }
+
+    .drop strong {
+      font-size: 17px;
+      display: block;
+      color: var(--ink);
+    }
+
+    .drop p {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin: 6px 0 16px;
+      line-height: 1.4;
+    }
+
+    .primary {
+      border: 0;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 12px;
+      width: 100%;
+      height: 49px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(38, 27, 32, 0.16);
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .primary:hover {
+      background: #171013;
+      transform: translateY(-1px);
+    }
+
+    .upload-options-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .sub-btn {
+      border: 0;
+      background: transparent;
+      color: var(--red);
+      font-size: 12.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .sub-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* Flow Section */
+    .flow {
+      background: #b88986;
+      color: #fff8f2;
+      padding: 22px 18px 24px;
+    }
+
+    .flow h2, .section-title {
+      font: 600 25px/1.05 "Playfair Display", serif;
+      letter-spacing: -1.4px;
+      margin: 0;
+    }
+
+    .flow-steps {
+      display: flex;
+      gap: 8px;
+      margin-top: 17px;
+    }
+
+    .flow-step {
+      flex: 1;
+      font-size: 11px;
+      line-height: 1.35;
+      color: #fff1f3;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 8px;
+      border-radius: 10px;
+    }
+
+    .flow-num {
+      font: 600 11px "DM Mono", monospace;
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    /* Marquee */
+    .marquee-wrapper {
+      background: var(--yellow);
+      overflow: hidden;
+      display: flex;
+      border-top: 1px solid rgba(88, 59, 50, 0.1);
+      border-bottom: 1px solid rgba(88, 59, 50, 0.1);
+    }
+
+    .marquee {
+      background: var(--yellow);
+      color: var(--brown);
+      padding: 13px 0;
+      font: 600 12px/1.2 "DM Mono", monospace;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      width: max-content;
+      animation: dresserie-marquee 22s linear infinite;
+      display: inline-block;
+      user-select: none;
+    }
+
+    @keyframes dresserie-marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Demo Section */
+    .demo {
+      padding: 30px 18px 27px;
+      background: #fcebef;
+    }
+
+    .demo-intro {
+      font: 600 34px/0.96 "Playfair Display", serif;
+      letter-spacing: -2px;
+      margin: 8px 0 19px;
+    }
+
+    .transform {
+      display: grid;
+      grid-template-columns: 1fr 27px 1fr;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .trans-img {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(88, 59, 50, 0.12);
+    }
+
+    .trans-img img {
+      height: 185px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .trans-img label {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 4px 7px;
+      font: 600 8px "DM Mono", monospace;
+      letter-spacing: 0.6px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .arrow {
+      text-align: center;
+      font-size: 20px;
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    .decode {
+      margin-top: 16px;
+      padding: 16px;
+      background: var(--pink2);
+      border-radius: 12px;
+      border: 1px solid rgba(188, 51, 66, 0.12);
+      transform: rotate(-0.75deg);
+      box-shadow: 0 4px 14px rgba(88, 59, 50, 0.05);
+    }
+
+    .decode-title {
+      font: 600 10px "DM Mono", monospace;
+      letter-spacing: 1px;
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .decode-title::before {
+      content: "✦";
+      font-size: 10px;
+    }
+
+    .vibe {
+      font: 600 21px "Playfair Display", serif;
+      margin: 5px 0 8px;
+      color: var(--ink);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 11px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 5px 10px;
+      color: var(--brown);
+      font-weight: 500;
+    }
+
+    .outfit-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 24px;
+    }
+
+    .outfit-head h3 {
+      font: 600 21px "Playfair Display", serif;
+      margin: 0;
+    }
+
+    .match {
+      font: 600 10px "DM Mono", monospace;
+      color: var(--red);
+      background: #fff;
+      padding: 4px 9px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .prod-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--pink) transparent;
+    }
+
+    .prod-row::-webkit-scrollbar { height: 4px; }
+    .prod-row::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 4px; }
+
+    .prod {
+      width: 140px;
+      flex: none;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 3px 8px rgba(88, 59, 50, 0.05);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .prod:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(88, 59, 50, 0.1);
+    }
+
+    .prod-img-wrap {
+      position: relative;
+      height: 145px;
+      overflow: hidden;
+      background: #f7eff1;
+    }
+
+    .prod img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .prod:hover img {
+      transform: scale(1.04);
+    }
+
+    .prod-info {
+      padding: 8px 9px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .prod small {
+      font-size: 9.5px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .prod b {
+      font-size: 11.5px;
+      display: block;
+      color: var(--ink);
+      line-height: 1.25;
+      height: 28px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .prod-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .prod span {
+      font: 600 11.5px "DM Mono", monospace;
+      color: var(--brown);
+    }
+
+    .prod-buy-btn {
+      background: var(--pink2);
+      color: var(--red);
+      font: 600 9.5px "DM Mono", monospace;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      transition: background 0.15s;
+    }
+
+    .prod-buy-btn:hover {
+      background: var(--red);
+      color: #fff;
+      border-color: var(--red);
+    }
+
+    .look-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .look-total b {
+      font: 600 18px "Playfair Display", serif;
+    }
+
+    .look-total span {
+      font: 600 17px "DM Mono", monospace;
+      color: var(--red);
+    }
+
+    .alt-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .alt {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 22px;
+      padding: 8px 13px;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      color: var(--brown);
+      cursor: pointer;
+    }
+
+    .alt:hover, .alt.active {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    /* Budget Dupe Section */
+    .budget {
+      padding: 26px 18px 28px;
+      background: var(--sage);
+    }
+
+    .budget p {
+      font-size: 12.5px;
+      color: var(--brown);
+      margin: 7px 0 15px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .tab {
+      background: #f8ffe7;
+      border: 1px solid #b5cc70;
+      color: var(--brown);
+      border-radius: 20px;
+      white-space: nowrap;
+      padding: 8px 14px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tab:hover {
+      background: #effacb;
+    }
+
+    .tab.active {
+      background: var(--brown);
+      border-color: var(--brown);
+      color: #fff8f1;
+    }
+
+    /* Cores Section */
+    .cores {
+      padding: 29px 0 26px;
+      background: var(--lav);
+    }
+
+    .section-heading {
+      padding: 0 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .section-heading a {
+      font-size: 11.5px;
+      color: #8a596a;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .section-heading a:hover {
+      text-decoration: underline;
+    }
+
+    .core-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 16px 18px 4px;
+    }
+
+    .core {
+      width: 145px;
+      flex: none;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .core:hover {
+      transform: translateY(-3px);
+    }
+
+    .core img {
+      height: 185px;
+      width: 145px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(88, 59, 50, 0.12);
+    }
+
+    .core:nth-child(even) {
+      margin-top: 16px;
+    }
+
+    .core-info {
+      margin-top: 8px;
+    }
+
+    .core-info b {
+      font: 600 14px "Playfair Display", serif;
+      display: block;
+      color: var(--ink);
+    }
+
+    .core-info span {
+      font: 500 13px "Caveat", cursive;
+      color: var(--red);
+      display: block;
+      line-height: 1.1;
+    }
+
+    /* Obsessed Section */
+    .obsessed {
+      padding: 29px 18px;
+      background: var(--blue);
+    }
+
+    .feed {
+      columns: 2;
+      column-gap: 10px;
+      margin-top: 15px;
+    }
+
+    .feed-card {
+      break-inside: avoid;
+      margin-bottom: 11px;
+      background: #f9fdff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(88, 59, 50, 0.06);
+      padding-bottom: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .feed-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .feed-card img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .feed-card:nth-child(1) img { height: 203px; }
+    .feed-card:nth-child(2) img { height: 143px; }
+    .feed-card:nth-child(3) img { height: 142px; }
+    .feed-card:nth-child(4) img { height: 202px; }
+
+    .feed-card b {
+      font-size: 11px;
+      padding: 8px 8px 0;
+      display: block;
+      color: var(--ink);
+    }
+
+    .feed-card span {
+      font: 600 9px "DM Mono", monospace;
+      color: var(--red);
+      padding: 3px 8px 0;
+      display: block;
+    }
+
+    /* Moodboard Card */
+    .moodboard {
+      margin: 10px 18px 24px;
+      background: var(--brown);
+      color: #fff;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(88, 59, 50, 0.22);
+    }
+
+    .moodboard::after {
+      content: '♡';
+      position: absolute;
+      right: -8px;
+      bottom: -32px;
+      font: 130px "Playfair Display", serif;
+      color: rgba(255, 255, 255, 0.12);
+      pointer-events: none;
+    }
+
+    .moodboard h2 {
+      font: 600 27px/0.98 "Playfair Display", serif;
+      margin: 0;
+      max-width: 250px;
+      color: #fff8f2;
+    }
+
+    .moodboard p {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #f8e6df;
+      max-width: 260px;
+      margin: 10px 0 16px;
+    }
+
+    .moodboard button {
+      background: var(--yellow);
+      color: var(--brown);
+      border: 0;
+      border-radius: 20px;
+      padding: 10px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 30px 18px 36px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+    }
+
+    .footer span {
+      display: inline-block;
+      margin-top: 5px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 10.5px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* Nav Bar */
+    .nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 480px;
+      width: 100%;
+      height: 69px;
+      background: rgba(255, 241, 244, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .nav button {
+      border: 0;
+      background: transparent;
+      font-size: 10px;
+      color: var(--muted);
+      display: flex;
+      gap: 3px;
+      flex-direction: column;
+      align-items: center;
+      padding: 6px 12px;
+    }
+
+    .nav button.active {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .nav .upload-nav {
+      margin-top: -28px;
+      background: var(--red);
+      color: #fff !important;
+      border: 4px solid var(--cream);
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      font-size: 22px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(188, 51, 66, 0.35);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .nav .upload-nav:hover {
+      transform: scale(1.08);
+    }
+
+    .nav .upload-nav span {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: -2px;
+    }
+
+    /* Results Screen */
+    .results {
+      display: none;
+    }
+
+    .results.show {
+      display: block;
+    }
+
+    .res-top {
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: #f9dce1;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .res-top b {
+      font: 600 20px "Playfair Display", serif;
+      color: var(--ink);
+    }
+
+    .text-btn {
+      border: 0;
+      background: none;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--red);
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .text-btn:hover {
+      background: rgba(188, 51, 66, 0.08);
+    }
+
+    .result-photo {
+      margin: 17px 18px 0;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(88, 59, 50, 0.14);
+    }
+
+    .result-photo img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .result-photo::after {
+      content: 'YOUR VERSION, UNLOCKED ✦';
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: var(--yellow);
+      color: var(--brown);
+      padding: 6px 9px;
+      font: 600 9px "DM Mono", monospace;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .reverse-lens-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(38, 27, 32, 0.85);
+      color: #fff;
+      font: 600 9.5px "DM Mono", monospace;
+      padding: 5px 9px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .reverse-lens-btn:hover {
+      background: var(--red);
+    }
+
+    /* Live Indian Store Links Container inside Results */
+    .live-search-hub {
+      margin-top: 16px;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      padding: 14px;
+    }
+
+    .live-search-hub b {
+      font: 600 13px "Playfair Display", serif;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .live-search-hub small {
+      font-size: 10.5px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .garment-search-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .garment-tag-card {
+      background: #faf6f7;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .garment-tag-card .left {
+      flex: 1;
+    }
+
+    .garment-tag-card .left b {
+      font-size: 11.5px;
+      display: block;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .garment-tag-card .left span {
+      font: 600 9px "DM Mono", monospace;
+      color: var(--red);
+    }
+
+    .garment-tag-card .store-links {
+      display: flex;
+      gap: 5px;
+    }
+
+    .store-quick-link {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 4px 7px;
+      border-radius: 6px;
+      font: 600 9.5px "DM Mono", monospace;
+      color: var(--brown);
+    }
+
+    .store-quick-link:hover {
+      background: var(--red);
+      color: #fff;
+      border-color: var(--red);
+    }
+
+    .personal {
+      margin: 22px 18px;
+      padding: 18px;
+      background: var(--lav);
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(88, 59, 50, 0.05);
+    }
+
+    .personal h2 {
+      font: 600 23px "Playfair Display", serif;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .personal p {
+      font-size: 11.5px;
+      margin: 4px 0 12px;
+      color: var(--brown);
+    }
+
+    .pref {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .pref button {
+      font-size: 11px;
+      border: 1px solid #bdabd2;
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--brown);
+      border-radius: 20px;
+      padding: 7px 11px;
+      font-weight: 500;
+      transition: all 0.18s;
+    }
+
+    .pref button:hover {
+      background: #fff;
+    }
+
+    .pref button.active {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .shopbar {
+      position: sticky;
+      bottom: 69px;
+      background: rgba(255, 241, 244, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 12px 18px;
+      border-top: 1px solid var(--line);
+      z-index: 50;
+      display: flex;
+      gap: 10px;
+    }
+
+    .shopbar button {
+      flex: 1;
+      height: 50px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 600;
+      font-size: 14.5px;
+      box-shadow: 0 6px 16px rgba(188, 51, 66, 0.28);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .shopbar button:hover {
+      background: var(--red-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Modal / Drawer */
+    .drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 250;
+      background: rgba(38, 27, 32, 0.55);
+      backdrop-filter: blur(4px);
+    }
+
+    .drawer.show {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .drawer-content {
+      background: var(--cream);
+      max-width: 480px;
+      width: 100%;
+      max-height: 85vh;
+      border-radius: 24px 24px 0 0;
+      padding: 24px 20px 36px;
+      overflow-y: auto;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.25);
+      animation: slide-up 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slide-up {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .drawer-head h3 {
+      font: 600 22px "Playfair Display", serif;
+      margin: 0;
+    }
+
+    .close-btn {
+      font-size: 24px;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 2px 6px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      z-index: 300;
+      bottom: 88px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Loading Overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: #f9dce1;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    .load-screen {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 34px;
+    }
+
+    .load-screen img {
+      width: 190px;
+      height: 245px;
+      object-fit: cover;
+      transform: rotate(-3deg);
+      border: 7px solid #fff;
+      box-shadow: 0 16px 36px rgba(57, 37, 30, 0.22);
+      border-radius: 2px;
+      animation: polaroid-wiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes polaroid-wiggle {
+      0%, 100% { transform: rotate(-3deg) translateY(0); }
+      50% { transform: rotate(1deg) translateY(-8px); }
+    }
+
+    .load-screen h2 {
+      font: 600 35px/1 "Playfair Display", serif;
+      letter-spacing: -2px;
+      margin: 26px 0 7px;
+    }
+
+    .load-screen p {
+      font: 600 20px "Caveat", cursive;
+      color: var(--red);
+      margin: 0;
+      min-height: 28px;
+    }
+
+    .dots {
+      letter-spacing: 5px;
+      margin-top: 15px;
+      color: var(--red);
+      font-size: 14px;
+      animation: dots-pulse 1.2s infinite ease-in-out;
+    }
+
+    @keyframes dots-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    @media (min-width: 700px) {
+      body {
+        padding: 30px 0;
+        background: #dbc1c7;
+      }
+      .app {
+        border-radius: 28px;
+      }
+      .nav {
+        border-radius: 0 0 28px 28px;
+      }
+      .drawer-content {
+        border-radius: 24px;
+        margin-bottom: 25px;
+      }
+    }
+  </style>
 </head>
 <body>
-<header><div class="wrap"><strong><a href="#/" style="color:inherit;text-decoration:none">Laeba</a></strong>
-<nav><a href="#/projects">Work</a><details class="dd"><summary>Teardowns</summary><div class="menu"><a href="#/phonepe">PhonePe</a><a href="#/spotify">Spotify</a></div></details><a href="#/about">About</a><a href="#/contact">Contact</a></nav><button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button></div></header>
 
-<main>
-<div class="page" id="p-home"><div class="wrap top">
-<h1>Building AI products where human expertise matters.</h1>
-<p>I'm Laeba, an Assistant Product Manager at RunPlayGo, a coach-led running platform in India. I own product development for the coach app, where AI-generated training plans help coaches deliver more personalized guidance while keeping them in control of every decision.</p>
-<div class="links"><a class="btn main" href="#/projects">See the work</a><a class="btn" href="#/contact">Get in touch</a></div>
-</div>
-<div class="flow" role="group" aria-label="From ambiguity to shipped product"><ol class="steps" tabindex="0" aria-label="Five steps, from discovery to learning"><li class="st s1"><span class="lab"><i>01</i>Discover</span><span class="ph">Find the real problem</span></li><li class="st s2"><span class="lab"><i>02</i>Define</span><span class="ph">Turn insights into a clear solution</span></li><li class="st s3"><span class="lab"><i>03</i>Prioritize</span><span class="ph">Make deliberate trade-offs</span></li><li class="st s4"><span class="lab"><i>04</i>Build</span><span class="ph">Align people around execution</span></li><li class="st s5"><span class="lab"><i>05</i>Learn</span><span class="ph">Measure outcomes and iterate</span></li></ol><p class="cap-flow">From ambiguity to shipped product.</p></div>
+<main class="app">
+  <!-- HOME VIEW -->
+  <div id="home">
+    <header class="top">
+      <div style="width:38px"></div>
+      <a href="#" class="brand logo-wordmark">dress<span class="logo-soft">erie</span></a>
+      <button class="top-action-btn" id="openSavedBtn" aria-label="Saved closet" title="Saved looks">
+        ♡
+        <span class="badge" id="savedBadge">2</span>
+      </button>
+    </header>
 
-<section class="band"><div class="wrap nums">
-<div><b>~50</b><span>coaches onboarded</span></div>
-<div><b>30</b><span>days to ship</span></div>
-<div><b>~30</b><span>coach interviews</span></div>
-<div><b>5</b><span>person engineering and design team</span></div>
-</div></section>
+    <section class="hero">
+      <div class="kicker">For the fashion obsessed</div>
+      <h1>Seen it.<br>Loved it.<br><em>Found it.</em></h1>
+      <p class="hero-copy">Drop an outfit you’re obsessed with and we’ll decode the vibe and find your wearable Indian dupe.</p>
 
-<section id="projects"><div class="wrap">
-<h2>Projects</h2>
-<p class="lede">Shipped work from the coach app, scoped product work, and independent teardowns.</p>
-<div class="grid">
-<a class="proj" href="#/coach-plan-modification"><h3>Coach Plan Modification</h3><p>How weekly AI-generated training plans reach coaches, and how coaches review, change and approve them.</p><div class="tags"><span>Shipped</span><span>AI</span><span>Coach app</span></div></a>
-<a class="proj" href="#/nutrition-for-runners"><h3>Nutrition for runners</h3><p>Run-linked fuelling for a coach-led platform: a four-app competitor review, a long idea list, and a phased MVP built around an AI meal scanner.</p><div class="tags"><span>MVP defined</span><span>AI</span><span>Nutrition</span></div></a>
-<a class="proj" href="#/coach-financial-dashboard"><h3>Coach financial dashboard</h3><p>Earnings overview, pipeline projections from lead conversion rates, and trainee upsell opportunities.</p><div class="tags"><span>Scoped</span><span>Wireframes</span><span>Coach app</span></div></a>
-<a class="proj" href="#/phonepe"><h3>PhonePe teardown</h3><p>Turning failed and pending payments into a trust moment with an AI-assisted status and resolution layer.</p><div class="tags"><span>Teardown</span><span>Payments</span><span>AI</span></div></a>
-<a class="proj" href="#/spotify"><h3>Spotify teardown</h3><p>A metered Prompted Playlist that lets free listeners try the AI that makes Premium worth it.</p><div class="tags"><span>Teardown</span><span>Consumer</span><span>AI</span></div></a>
-</div></div></section>
+      <div class="prompt-stack" aria-label="Ways to use dresserie">
+        <button class="prompt-card" data-vibe="date-night">
+          <small>DATE NIGHT</small>
+          <b>Find the<br>perfect fit</b>
+        </button>
+        <button class="prompt-card active" data-vibe="screenshot">
+          <small>SCREENSHOT MATCH</small>
+          <b>Find my<br>version ✦</b>
+        </button>
+        <button class="prompt-card" data-vibe="budget">
+          <small>BUDGET DUPE</small>
+          <b>Make it<br>under ₹5K</b>
+        </button>
+        <button class="prompt-card" data-vibe="core">
+          <small>STYLE RESET</small>
+          <b>Find my new core ✦</b>
+        </button>
 
-<section class="how" aria-roledescription="carousel" aria-label="How I build products"><div class="wrap"><div class="how-head"><div><h2>How I build products</h2><p class="lede">From the first user insight to the feature that ships.</p></div><div class="how-ctl"><button type="button" id="hPrev" aria-label="Previous cards"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" id="hNext" aria-label="Next cards"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div><ul class="track" id="hTrack" tabindex="0" aria-label="Six steps, scroll sideways to see more"><li class="hcard"><span class="no">01</span><span class="tt">Discover</span><h3>Find the real problem.</h3><p>User conversations, market research, and problem framing before jumping to solutions.</p></li><li class="hcard"><span class="no">02</span><span class="tt">Define</span><h3>Turn ambiguity into clarity.</h3><p>User flows, wireframes, PRDs, acceptance criteria, and edge cases.</p></li><li class="hcard"><span class="no">03</span><span class="tt">Design AI experiences</span><h3>Know where AI fits.</h3><p>Define what AI generates, where guardrails are needed, and when human judgment takes over.</p></li><li class="hcard"><span class="no">04</span><span class="tt">Prioritize</span><h3>Make the hard trade-offs.</h3><p>Balance user value, business goals, effort, and delivery constraints.</p></li><li class="hcard"><span class="no">05</span><span class="tt">Measure</span><h3>Define what success means.</h3><p>North Star metrics, leading indicators, and guardrails that track product outcomes.</p></li><li class="hcard"><span class="no">06</span><span class="tt">Ship</span><h3>Move from decision to delivery.</h3><p>Work with founders, engineers, and designers to take features from concept to launch.</p></li></ul><div class="dots" id="hDots" role="group" aria-label="Carousel position"></div></div></section>
+        <span class="scribble" id="cloudNote">pick your mood</span>
+        <span class="star s1">✦</span>
+        <span class="star s2">✷</span>
+      </div>
+    </section>
 
-</div>
-<div class="page" id="p-coach" hidden><section class="pg"><div class="wrap"><a class="back" href="#/projects">Back to all work</a><h1>Coach Plan Modification: giving coaches the final say on AI training plans</h1><p class="lede">How weekly AI-generated plans reach run coaches at RunPlayGo, and how coaches review, change and approve them. Shipped in 30 days.</p><div class="demo" style="max-width:460px;margin-top:8px" aria-live="polite">
-<h3>A coach reviews the week</h3>
-<small>Illustration of the review flow, not product data.</small>
-<ul class="week" id="week"></ul>
-<button id="edit" type="button">Trainee missed Wednesday. Let the coach adjust.</button>
-</div>
-<div class="case"><aside><b>At a glance</b>Status: shipped<br>Scale: ~50 coaches onboarded<br>Timeline: 30 days to ship<br>Team: 5, including developers<br>My role: Assistant Product Manager, reporting to the Head of Product. I ran the coach research, defined the review and edit flow, wrote the PRD and prioritized the scope.</aside><div><h3>The context</h3><p>RunPlayGo is a coach-led running platform in India. Runners choose a goal, find a coach and subscribe. Coaches use a separate coach app, which I own, for plans, run history and stats, feedback, chat and scheduling for online and offline sessions. The platform also brings coaches new trainees alongside their existing ones.</p><h3>The problem: coaches had no platform, so growth stopped at a few trainees</h3><p>Plans, trainee feedback and chats were scattered across WhatsApp, Excel sheets and notebooks, often managed alongside another job, with trainees able to call at any time. Plans also go stale fast: a missed session, a hard week or an injury risk means the plan has to change that day, and without run data in front of them coaches adjusted from what trainees told them, not what they ran. With no single tool or process, coaches couldn't take on more trainees even when they wanted to.</p><p>I spoke with up to 30 coaches about how they work before designing anything.</p><h3>The decision: AI drafts, the coach decides</h3><p>I weighed three options:</p><ul><li><b>Fully automated:</b> AI generates and adjusts plans and trainees receive them directly</li><li><b>Fully manual:</b> coaches build everything with no AI</li><li><b>AI drafts, the coach decides:</b> AI produces the plan and the coach reviews, edits or replaces it</li></ul><p>I chose the third. A plan generates weekly from the trainee's goal, which removes the blank page. Coaches stay the final authority because injury risk, recovery and performance calls need someone who sees the trainee's real data and context. It also protects the coach's role, since this is a coach-led platform and every coach has their own training style.</p><h3>What coaches can do</h3><ul><li><b>Start from a weekly AI draft</b> built from the trainee's goal</li><li><b>See past weeks of real run data</b> beside the plan: heart rate, pace, distance and time, synced from the trainee's watch (Garmin, Apple Watch, Samsung Health, COROS)</li><li><b>Decide what to change</b>, for example lowering intensity when a trainee isn't keeping up or when feedback or heart rate points that way</li><li><b>Approve before the plan reaches the trainee</b>, edit on any day, or build a plan from scratch</li></ul><h3>Tradeoffs</h3><ul><li><b>Full automation versus what's achievable now.</b> The fuller vision has AI analyzing trainee feedback, summarizing it and adjusting plans automatically, with the coach approving. It needs significant model training and data, so I shipped the weekly draft with the coach doing the review and judgment. The cost: for now, coaches make the adjustments themselves.</li><li><b>Control versus speed.</b> Review adds work, which is the main adoption risk. Run data sits next to the plan to keep decisions quick.</li><li><b>Editing any day versus a weekly cycle.</b> Real training changes mid-week, and a rigid cycle would push coaches back to WhatsApp.</li><li><b>Flexibility versus structure.</b> Coaches can modify the AI plan or build their own, because one method would have lost the experienced ones.</li></ul><h3>How I'll know it's working</h3><p>The North Star is trainees with a coach-managed plan each week, meaning their coach reviewed, adjusted or approved the plan that week.</p><ul><li><b>Inputs:</b> active coaches using the plan flow weekly, share of trainees whose plan was touched that week, time a coach spends on a review, and which parameters coaches change most</li><li><b>Quality signals:</b> plan modification rate (a signal, not a target) and zero-edit approval rate, to catch rubber-stamping</li><li><b>Guardrails:</b> plans reaching trainees without coach review, trainee plan adherence, coach churn</li></ul><p>First-phase targets, set as hypotheses to test:</p><ul><li>70% of onboarded coaches using the plan flow every week within 60 days</li><li>80% of trainees' plans reviewed or adjusted by their coach at least weekly</li><li>Plan review under 10 minutes on average</li><li>Zero-edit approvals below roughly 70%, so reviews stay real</li><li>80% of coaches still active four weeks after onboarding</li></ul><h3>Outcome</h3><p>~50 coaches onboarded to the coach app. The plan review and edit flow is live, and I'm tracking the North Star and these metrics against the targets.</p><h3>What's next (planned, not built)</h3><ul><li>AI analysis of trainee feedback into a coach-ready summary</li><li>Plans that adjust automatically, with the coach still approving</li><li>Coach-made plans saved as templates</li><li>Pattern recognition from those plans, so a plan can readjust after 5 to 6 weeks, with coaches still in the loop</li></ul></div></div></div></section></div>
-<div class="page" id="p-nutrition" hidden><section class="pg"><div class="wrap"><a class="back" href="#/projects">Back to all work</a><h1>Nutrition for runners: choosing the one MVP worth building first</h1><p class="lede">Run-linked fuelling for a coach-led running platform: what to build first, and why.</p><div class="case"><aside><b>At a glance</b>Status: MVP defined, not yet shipped<br>Scope: competitor research, feature ideation and prioritization<br>My role: Assistant Product Manager. I led ideation and prioritization for the module.</aside><div><h3>The context</h3><p>RunPlayGo provides AI-powered training plans and nutrition for runners, with coaches in the loop. Nutrition is the module I scoped: what it should do first, and how it connects to the coach's plan.</p><h3>The problem: runners need fuel planned around training, not a calorie counter</h3><p>Most nutrition apps count calories. A runner needs to know what to eat around a session, and their coach needs to see it too. The competitor review covered four products, and each solves one piece well:</p><ul><li><b>Fuelin and Hexis</b> set each meal's carb level from the day's training session, but they are built for global endurance athletes with no Indian food focus</li><li><b>Precision Fuel &amp; Hydration</b> owns sweat rate and race fuelling</li><li><b>HealthifyMe</b> leads in India on fast AI logging of Indian food, but it is built for weight loss, not training</li></ul><p>None of them lets a runner's own coach see the same data. That was the gap: run-linked fuelling, Indian food, and a coach who sees both.</p><h3>The decision: what to build first</h3><p>The brainstorm produced ideas across 15 areas, from logging and race plans to labs and a nutritionist marketplace. I weighed three directions:</p><ul><li><b>A calorie and macro tracker:</b> familiar, but it competes head on with HealthifyMe</li><li><b>A full athlete nutrition suite:</b> race plans, sweat tests, labs and nutritionists. It is the highest value but needs the most legal review, consent and supply</li><li><b>Run-linked fuelling first:</b> the coach's plan drives what a runner should eat, with the expert layer added once daily logging sticks</li></ul><p>I chose the third. It is what makes the product different from HealthifyMe on day one, and it ties nutrition to the coach's plan.</p><h3>What the MVP does</h3><ul><li><b>A diet profile</b> and a daily carb level set by the coach's plan</li><li><b>A day timeline</b> with meals placed around the run</li><li><b>An AI meal scanner</b> for photo, voice and search logging, built for Indian and sports foods</li><li><b>An AI meal score</b> against today's run, with one reason and one swap</li><li><b>Hydration and macros,</b> plus a fuel summary the coach can see</li></ul><h3>Tradeoffs</h3><ul><li><b>Run-linked fuelling versus a broad feature set.</b> Race plans, sweat tests and supplements wait for a later release. The cost: v1 is narrower than the competitors' full apps.</li><li><b>Fast logging versus accuracy on Indian food.</b> Mixed dishes and portions are hard to read from a photo, so correcting the AI has to be quick, and I'd track how often users correct it.</li><li><b>Guidance versus liability.</b> Carb, protein and fluid thresholds and supplement advice need a sports nutritionist's sign-off, and diabetic runners need clinician-set plans.</li><li><b>Experts now versus later.</b> Labs and a nutritionist marketplace need explicit consent, legal review under India's DPDP Act and nutritionist supply, so they come last.</li></ul><h3>How I'll know it's working</h3><p>These are proposed measures to validate once the MVP is in testing. The North Star is the share of training days where the runner logs or confirms their fuel.</p><ul><li><b>Inputs:</b> runners who log a meal in their first week, share of scans accepted without correction, meal score views, and how often coaches open the fuel summary</li><li><b>Guardrails:</b> AI correction rate, logging drop-off after the first week, and any guidance flagged in the nutritionist review</li></ul><p class="note">Status: MVP defined, not yet shipped.</p><h3>What's next, and what's still open</h3><ul><li><b>v2, recover and race:</b> morning check-in, sleep and watch sync, a sweat test and a race nutrition planner</li><li><b>v3, expert:</b> a runner lab panel, a nutritionist marketplace and condition-aware plans</li><li><b>Still open:</b> which runner segment comes first, whether the paid tier is about performance or health, how nutritionists are sourced, and whether nutrition lives on one Today view or its own tab</li></ul></div></div></div></section></div>
-<div class="page" id="p-dashboard" hidden><section class="pg"><div class="wrap"><a class="back" href="#/projects">Back to all work</a><h1>Coach financial dashboard: helping coaches run the business of coaching</h1><p class="lede">Scoped, with wireframes. A view of the business side of coaching.</p>
-<div class="case"><aside><b>My role</b>Defined the scope and wireframes as Assistant Product Manager.</aside><div>
-<h3>What coaches get</h3><ul><li><b>Earnings overview</b> across their trainees.</li><li><b>Pipeline revenue projections</b> based on lead conversion rates.</li><li><b>Trainee upsell opportunities</b> to grow each coach's business.</li></ul>
-<p>It extends the coach app from managing training to managing the coaching business, in the same place coaches already work.</p>
-<p class="note">Status: scoped and wireframed, not yet shipped.</p></div></div></div></section></div>
-<div class="page" id="p-phonepe" hidden><section class="pg"><div class="wrap"><a class="back" href="#/projects">Back to all work</a><h1>PhonePe: making a failed payment a moment of trust</h1><p class="lede">An independent product teardown based on public information. My analysis, not shipped work.</p><div class="case"><aside><b>At a glance</b>Product: PhonePe, consumer UPI app<br>Focus: failed and pending payments<br>My role: problem selection, solution design, metrics and tradeoffs</aside><div><h3>Where PhonePe stands</h3><p>PhonePe handles nearly half of all UPI transactions and has expanded into lending and insurance distribution, Share.Market and the Indus Appstore. Two signals shaped this teardown.</p><ul><li><b>AI is already on the surface.</b> In February 2026 it launched natural-language search that lets users pay or get help by voice or text, replacing menu navigation with intent-based routing.</li><li><b>The market is more contested.</b> PhonePe and Google Pay's combined UPI share fell below 80% for the first time in May 2026, and users can keep more than one payments app, so switching costs are low.</li></ul><h3>The insight</h3><p>In a market where users switch apps freely, a payments app is judged less on the thousands of payments that work and more on the one that doesn't. When money has left an account and the user can't tell where it is, trust is made or lost, and it's the moment most apps explain least.</p><h3>Who it's for, and which problem to solve</h3><p>The everyday UPI payer: someone paying daily for groceries, bills, rent and transfers, often with more than one payments app. Their job is simple: pay reliably, and always know where their money is. I weighed four problems:</p><ul><li><b>Failed or pending payments:</b> the user doesn't know what happens next</li><li><b>Fraud and scams:</b> real, but PhonePe has already launched PhonePe Protect to guard against fraudulent transactions</li><li><b>App complexity as services expand:</b> real, but it touches fewer daily moments</li><li><b>Spend insights:</b> useful, but not tied to the core job</li></ul><p>I chose the first. It sits on the core job, it creates the highest anxiety, and trust at that moment is what keeps a user from opening a competitor. To validate it, I'd start the way I did with the coach app: talk to frequent UPI users about the last time a payment failed or hung, what they did and what they wished the app had told them.</p><h3>The decision: AI explains, the system resolves</h3><p>I weighed three options:</p><ul><li><b>Fully automated:</b> AI decides and acts on stuck payments, including refunds</li><li><b>Fully manual:</b> every issue goes to support</li><li><b>AI explains, the system and humans resolve:</b> AI says what is happening and what comes next, while the payment rails, banks and support stay the authority on the money</li></ul><p>I chose the third, the same principle as my coach app: AI proposes and a person with context decides. Money movement involves banks and the network, which the app doesn't control, and a wrong AI action on someone's money costs far more than a slow one.</p><h3>The proposal: a payment status and resolution layer</h3><p>When a payment fails or is pending, the user sees:</p><ul><li>A plain-language status of what happened and what happens next, in their language</li><li>An expected resolution window shown as a range based on typical bank and network timelines, not a promise</li><li>A proactive update when the payment resolves or the refund lands</li><li>An AI explanation from the transaction history, so they can ask why it is pending and get an answer based on the transaction's actual state</li><li>One-tap escalation with the details pre-filled if the window passes without resolution</li></ul><p>This builds on the AI search PhonePe already launched, moving it from finding and routing to explaining and resolving.</p><h3>Tradeoffs</h3><ul><li><b>Transparency versus control.</b> Show ranges and states, not guarantees: PhonePe doesn't control every step, and a missed promise damages trust more than an honest range. The cost is less reassurance than a firm deadline.</li><li><b>AI explanation versus accuracy.</b> The assistant explains from the structured transaction state, not free text, and hands off to a human when unsure. The cost is narrower answers at first.</li><li><b>Full coverage versus a focused start.</b> Begin with the most common failure types and the largest banks, since a reliable narrow version beats a patchy broad one.</li><li><b>Reliability versus new services.</b> Every other service sits on the payments base, so protecting it matters more than adding surface area. The cost is fewer visible launches in the short term.</li></ul><h3>How I'd measure it</h3><p>The North Star is the share of failed or pending transactions where the user reaches a clear resolution without contacting support.</p><ul><li><b>Inputs:</b> support contacts per 1,000 failed or pending transactions, status screen opens, and how often the assistant answers without escalation</li><li><b>Retention signal:</b> how often users who hit a failure keep paying on PhonePe, compared with similar users who didn't</li><li><b>Guardrails:</b> duplicate payments (users retrying because they're unsure), escalation volume, wrong AI explanations, and any gap between shown and actual resolution times</li></ul><h3>What I'd do first</h3><ul><li>Interview frequent UPI users about their last failed payment</li><li>Map the current in-app flow for failed and pending states and find the exact gaps</li><li>Review the main failure types by frequency and severity</li><li>Prototype the status screen and test comprehension before building the AI layer</li></ul></div></div></div></section></div>
-<div class="page" id="p-spotify" hidden><section class="pg"><div class="wrap"><a class="back" href="#/projects">Back to all work</a><h1>Spotify: let free listeners try the AI that makes Premium worth paying for</h1><p class="lede">An independent product teardown based on public information. My analysis, not shipped work.</p><div class="case"><aside><b>At a glance</b>Product: Spotify, consumer app<br>Focus: free listeners and AI personalization<br>My role: problem selection, solution design, metrics and tradeoffs</aside><div><h3>Where Spotify stands</h3><p>In Q2 2026 Spotify reported 777 million monthly active users and 300 million Premium subscribers, which leaves about 494 million on the ad-supported tier. Its newest AI feature, Prompted Playlist, lets listeners describe what they want in their own words, edit or restart the prompt, set the playlist to refresh daily or weekly, and see a short reason for each track. So far it has rolled out to Premium users, in English, in its early markets.</p><h3>The gap</h3><p>Spotify has built a strong personalization engine, but its newest part is so far reserved for Premium. The free listener, the biggest group, gets recommendations but can't steer them, and can't see what Premium would actually change for them.</p><h3>Who it's for, and which problem to solve</h3><p>The regular free listener: someone who streams often, has real taste and hasn't upgraded. The problems, in order of impact:</p><ul><li><b>No way to steer.</b> Recommendations come to them, but they can't say what they want right now</li><li><b>No way to see Premium's value.</b> Nothing shows what upgrading would change</li><li><b>The blank prompt.</b> People have to know what to type, which is why Spotify added an Ideas option</li><li><b>English first.</b> Early AI features in one language limit reach in multilingual markets</li></ul><p>To validate it, I'd talk to regular free listeners about the last time they wanted music for a specific moment, what they did and what they wished the app had done.</p><h3>The decision: AI drafts, the listener steers</h3><p>I weighed three options:</p><ul><li><b>AI decides everything:</b> it picks and plays, and the listener accepts</li><li><b>Listener builds everything:</b> manual playlists with no AI help</li><li><b>AI drafts, the listener steers:</b> AI builds the playlist from the prompt and listening history, and the listener edits it and sees why each track was chosen</li></ul><p>I chose the third, the same principle as my coach app: AI does the heavy lifting and the person with the context makes the call. Music is personal, so a listener who can see the reasoning and change the result will trust the product more than one who is handed an answer.</p><h3>The proposal: a metered Prompted Playlist for free listeners</h3><ul><li>A small allowance of prompted playlists for free users, built from their own listening history</li><li>The why-it-fits line stays on every track, because it builds trust</li><li>Same quality as Premium: limit how many a free user gets, not how good the first one is</li><li>A natural upgrade moment after a good result, since a playlist that refreshes on its own and unlimited prompts stay with Premium</li><li>Start in markets where the feature already runs, then expand</li></ul><h3>Tradeoffs</h3><ul><li><b>Free taste versus Premium value.</b> A limited taste shows the value without removing the reason to pay. The cost is that some users will be satisfied with one playlist and never upgrade.</li><li><b>AI cost versus reach.</b> Cap the allowance and use a lower-cost generation path for free usage, without cutting the quality of the first result, because a poor first impression wastes the trial. The cost is that some users will hit the cap.</li><li><b>Conversion versus trust.</b> Show the upgrade offer only after the listener has received value, and never put the result behind it. The cost is lower short-term conversion.</li><li><b>Heavy listeners first.</b> More history means a better first result, so I'd start with regular listeners. The cost is slower reach.</li><li><b>What's feasible now versus the full vision.</b> The vision is Spotify spotting a listener's recurring moments and suggesting the playlist before they type. That needs a lot of behavior data and tuning, so I'd ship the metered prompt first.</li></ul><h3>How I'd measure it</h3><p>The North Star is the 30-day Premium conversion rate of free users offered the trial, compared with a holdout group that wasn't.</p><ul><li><b>Inputs:</b> share who see the entry point, create a prompt, play the result past a few tracks, hit the allowance limit, or tap the upgrade offer</li><li><b>Quality signals:</b> skips and early abandonment on generated playlists, and how often listeners edit the prompt</li><li><b>Guardrails:</b> Premium churn and Premium use of the feature (to catch cannibalization), AI cost per free user, and ad-supported listening</li></ul><p>I'd ship wider only if conversion lifts against the holdout, Premium churn doesn't rise, and AI cost per free user stays below what the extra conversions earn.</p><h3>What's next (planned, not built)</h3><ul><li>Save prompts that worked as reusable templates, like a focus or gym playlist</li><li>Notice when a listener repeats a moment and suggest the playlist before they type, with the listener approving</li><li>Expand to more languages</li></ul><h3>What I'd do first</h3><ul><li>Use the free and Premium tiers hands-on and map what a free user sees today</li><li>Interview regular free listeners about why they haven't upgraded</li><li>Estimate the cost per prompt and the break-even conversion lift</li><li>Prototype the metered trial and run it as an A/B test with a holdout in one live market</li></ul></div></div></div></section></div>
-<div class="page" id="p-about" hidden><section class="pg" id="about"><div class="wrap">
-<h2>About</h2>
-<p class="lede">I started in marketing at RenewBuy and moved into product work on RunPlayGo in December 2025, where I now hold the Assistant Product Manager role. I have an MBA from Chandigarh University.</p>
-<p style="max-width:68ch;margin:0">I like problems where AI is useful only if people can trust it, check it and override it. I work from user research through PRDs, wireframes, acceptance criteria and edge cases, and I use AI tools to speed up prototyping and documentation.</p>
-<div class="chips"><span>PRDs</span><span>User research</span><span>Wireframing</span><span>Prioritization</span><span>Roadmapping</span><span>Success metrics</span><span>Claude</span><span>ChatGPT</span><span>Cursor</span><span>Lovable</span><span>Antigravity</span><span>Mixpanel</span><span>SQL</span></div>
-</div></section>
-<section id="approach"><div class="wrap">
-<h2>How I work</h2>
-<p class="lede">Questions I get asked, answered from the work above.</p>
-<details><summary>How do you decide what AI does and what a person decides?</summary><p>I start with what a wrong answer would cost. On the coach app, injury risk and recovery calls need someone who sees the trainee's real data, so AI drafts the weekly plan and the coach reviews, changes and approves it. The same rule shaped my PhonePe and Spotify teardowns: AI explains or suggests, and the system or the user keeps the final say.</p></details>
-<details><summary>How do you start on a problem?</summary><p>With the people who live with it. Before designing the coach app I spoke with up to 30 coaches about how they plan, track trainees and communicate. Coaches had no platform or tools, and everything was scattered across WhatsApp, Excel and notebooks.</p></details>
-<details><summary>How do you prioritize when time is short?</summary><p>I shipped Coach Plan Modification in 30 days by focusing on the review loop where the coach makes the judgment. I held back the fuller version, where AI analyzes feedback and adjusts plans itself, because it needs far more model training and data. I also built coach supply before trainee acquisition, since this is a coach-led platform.</p></details>
-<details><summary>How do you measure success?</summary><p>With a North Star, input metrics and guardrails. For plan modification the North Star is trainees with a coach-managed plan each week, and a guardrail watches the zero-edit approval rate so review doesn't turn into rubber-stamping. The targets I set are hypotheses to test.</p></details>
-<details><summary>Which tools do you use?</summary><p>Claude, ChatGPT, Cursor, Lovable, Antigravity and Notion AI to speed up prototyping and documentation, and Mixpanel, SQL and Google Analytics for data. I own the product logic and the tools help me move faster.</p></details>
-<details><summary>What are you looking for next?</summary><p>A product team building AI features where trust matters, with strong rigor around metrics and experimentation, which is the area I'm deliberately building up.</p></details>
-</div></section>
+    <!-- UPLOAD ZONE -->
+    <section class="upload-area">
+      <div class="drop" id="dropZone">
+        <div class="tiny">the fit drop zone</div>
+        <strong>What are we finding today?</strong>
+        <p>Screenshot, photo or outfit inspo — we speak all three.</p>
+        
+        <input id="file" type="file" accept="image/*" hidden>
+        <input id="cameraFile" type="file" accept="image/*" capture="environment" hidden>
+        
+        <button class="primary" id="dropBtn">
+          <span>＋</span> Drop the fit ♡
+        </button>
+      </div>
+      
+      <div class="upload-options-row">
+        <button class="sub-btn" id="cameraBtn">📷 Camera snap</button>
+        <span style="color:var(--line)">·</span>
+        <button class="sub-btn" id="tryBtn">Try a demo look instead →</button>
+      </div>
+    </section>
 
-</div>
-<div class="page" id="p-contact" hidden><section class="pg"><div class="wrap"><h1>Reach me out at</h1><p class="lede">I'm looking for a product team building AI features where trust matters.</p>
-<div class="links"><a class="btn main" href="mailto:laebah03@gmail.com">laebah03@gmail.com</a><a class="btn" href="https://www.linkedin.com/in/laeba-h-77339a25b/">LinkedIn</a></div></div></section></div>
+    <!-- FLOW SECTION -->
+    <section class="flow">
+      <h2>Inspo, but make it<br>actually wearable.</h2>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-num">01</div>
+          <b>Drop the fit</b><br>Upload screenshot, paste, or snap photo.
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">02</div>
+          <b>We decode vibe</b><br>AI isolates silhouettes & core aesthetic.
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">03</div>
+          <b>Shop your dupe</b><br>Direct links to Myntra, Zara, Savana & Ajio.
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrapper">
+      <div class="marquee">
+        COQUETTE &nbsp; ✦ &nbsp; OFFICE SIREN &nbsp; ✦ &nbsp; DOWNTOWN GIRL &nbsp; ✦ &nbsp; MODEL OFF DUTY &nbsp; ✦ &nbsp; OLD MONEY &nbsp; ✦ &nbsp; ROMANTIC MINIMALIST &nbsp; ✦ &nbsp; COQUETTE &nbsp; ✦ &nbsp; OFFICE SIREN &nbsp; ✦ &nbsp; DOWNTOWN GIRL &nbsp; ✦ &nbsp; MODEL OFF DUTY &nbsp; ✦ &nbsp;
+      </div>
+    </div>
+
+    <!-- DEMO PREVIEW SECTION -->
+    <section class="demo">
+      <div class="kicker">A little preview</div>
+      <div class="demo-intro">Okay wait…<br>we found your look.</div>
+      
+      <div class="transform">
+        <div class="trans-img">
+          <img id="demoInspoImg" alt="inspiration outfit" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=350&q=85">
+          <label>INSPIRATION</label>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="trans-img">
+          <img id="demoVersionImg" alt="recreated outfit" src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=350&q=85">
+          <label>YOUR VERSION</label>
+        </div>
+      </div>
+
+      <div class="decode">
+        <div class="decode-title">AI DECODE</div>
+        <div class="vibe" id="demoVibeTitle">Coquette · Romantic · Feminine</div>
+        <div class="chips" id="demoChips">
+          <span class="chip">lace trim top</span>
+          <span class="chip">denim mini</span>
+          <span class="chip">Mary Janes</span>
+          <span class="chip">mini shoulder bag</span>
+          <span class="chip">gold jewelry</span>
+        </div>
+      </div>
+
+      <div class="outfit-head">
+        <h3>Steal the look</h3>
+        <span class="match" id="demoMatchBadge">92% VIBE MATCH</span>
+      </div>
+
+      <div class="prod-row" id="demoProducts"></div>
+
+      <div class="look-total">
+        <div>
+          <b>Complete look</b>
+          <div style="font-size:11px;color:var(--muted)">Curated across Myntra, Newme, Mochi</div>
+        </div>
+        <span id="demoTotal">₹4,897</span>
+      </div>
+
+      <div class="alt-actions">
+        <button class="alt" data-tweak="cheaper">Make it cheaper</button>
+        <button class="alt" data-tweak="elevated">More elevated</button>
+        <button class="alt" data-tweak="vibe">Change the vibe</button>
+      </div>
+    </section>
+
+    <!-- BUDGET DUPE SECTION -->
+    <section class="budget">
+      <div class="kicker">Choose your chaos</div>
+      <h2 class="section-title">Same vibe. Different<br>damage to your bank account.</h2>
+      <p>Every version understands the assignment.</p>
+      <div class="tabs" id="budgets">
+        <button class="tab" data-tier="2k">Under ₹2K</button>
+        <button class="tab active" data-tier="5k">Under ₹5K</button>
+        <button class="tab" data-tier="10k">Under ₹10K</button>
+        <button class="tab" data-tier="treat">Treat Yourself</button>
+      </div>
+    </section>
+
+    <!-- CORES SECTION -->
+    <section class="cores">
+      <div class="section-heading">
+        <h2 class="section-title">Pick your core ♡</h2>
+        <a id="seeAllCores">see all →</a>
+      </div>
+      <div class="core-scroll">
+        <article class="core" data-core="coquette">
+          <img alt="coquette fashion" src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=300&q=85">
+          <div class="core-info">
+            <b>COQUETTE</b>
+            <span>bows, lace & pretty things</span>
+          </div>
+        </article>
+        <article class="core" data-core="office">
+          <img alt="office siren fashion" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=300&q=85">
+          <div class="core-info">
+            <b>OFFICE SIREN</b>
+            <span>sharp tailoring, no texts back</span>
+          </div>
+        </article>
+        <article class="core" data-core="downtown">
+          <img alt="downtown girl fashion" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=300&q=85">
+          <div class="core-info">
+            <b>DOWNTOWN GIRL</b>
+            <span>late-night energy & leather</span>
+          </div>
+        </article>
+        <article class="core" data-core="oldmoney">
+          <img alt="old money fashion" src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=300&q=85">
+          <div class="core-info">
+            <b>OLD MONEY</b>
+            <span>polished, effortless always</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CURRENTLY OBSESSED FEED -->
+    <section class="obsessed">
+      <div class="section-heading">
+        <h2 class="section-title">Currently obsessed</h2>
+        <a id="moreLooks">more looks →</a>
+      </div>
+      <div class="feed">
+        <article class="feed-card" data-title="Tomato girl, IRL" data-img="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=360&q=85">
+          <img alt="tomato girl look" src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=360&q=85">
+          <b>Tomato girl, IRL</b>
+          <span>STEAL THE LOOK</span>
+        </article>
+        <article class="feed-card" data-title="Model off-duty under ₹5K" data-img="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=300&q=85">
+          <img alt="casual fashion look" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=300&q=85">
+          <b>Model off-duty under ₹5K</b>
+          <span>92% MATCH</span>
+        </article>
+        <article class="feed-card" data-title="Very downtown, very you" data-img="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=300&q=85">
+          <img alt="streetwear fashion" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=300&q=85">
+          <b>Very downtown, very you</b>
+          <span>DOWNTOWN GIRL</span>
+        </article>
+        <article class="feed-card" data-title="Date night, but effortless" data-img="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=360&q=85">
+          <img alt="feminine dress fashion" src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=360&q=85">
+          <b>Date night, but effortless</b>
+          <span>ROMANTIC GIRL</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- MOODBOARD CALLOUT -->
+    <section class="moodboard">
+      <h2>Build the wardrobe your saved folder deserves.</h2>
+      <p>Make moodboards for every era you’re about to enter.</p>
+      <button id="openMoodboardBtn">＋ Start a moodboard</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      dresserie<br>
+      <span>find the fit. make it yours.</span>
+    </footer>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <section class="results" id="results">
+    <header class="res-top">
+      <button class="text-btn" id="backBtn">← new fit</button>
+      <b>Found the fit</b>
+      <button class="text-btn" id="saveFitBtn">♡ save</button>
+    </header>
+
+    <div class="result-photo">
+      <img id="resultImg" alt="your outfit inspiration" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=650&q=85">
+      <span id="aiStatusBadge" class="reverse-lens-btn" style="cursor:default;">
+        <span>✦</span> <span id="aiStatusText">AI Vision Decoded</span>
+      </span>
+    </div>
+
+    <section class="demo">
+      <div class="kicker">This fit is giving</div>
+      <div class="vibe" id="resultVibe">Coquette, but grown up.</div>
+      <div class="chips" id="resultChips">
+        <span class="chip">White lace top</span>
+        <span class="chip">Low-rise denim skirt</span>
+        <span class="chip">Mary Jane flats</span>
+        <span class="chip">Mini shoulder bag</span>
+        <span class="chip">Gold jewelry</span>
+      </div>
+
+      <div class="outfit-head">
+        <h3>Your wearable version</h3>
+        <span class="match" id="resultMatchBadge">94% VIBE MATCH</span>
+      </div>
+
+      <!-- Product cards row -->
+      <div class="prod-row" id="resultProducts"></div>
+
+      <div class="look-total">
+        <div>
+          <b>Complete look</b>
+          <div style="font-size:11px;color:var(--muted)">Curated direct buy links across Indian stores</div>
+        </div>
+        <span id="resultTotal">₹4,897</span>
+      </div>
+
+      <div class="alt-actions">
+        <button class="alt" id="actionSave">♡ Save look</button>
+        <button class="alt" id="actionShare">↗ Share</button>
+        <button class="alt" id="actionBoard">＋ Moodboard</button>
+      </div>
+
+      <!-- Live Search Hub (Indian Store Deep Links for Identified Pieces) -->
+      <div class="live-search-hub" id="liveSearchHub">
+        <b>Search each piece live in India:</b>
+        <small>Tap any store to see live in-stock items matching this exact piece</small>
+        <div class="garment-search-tags" id="garmentSearchTags"></div>
+      </div>
+    </section>
+
+    <section class="budget">
+      <div class="kicker">Shop your comfort zone</div>
+      <h2 class="section-title">Same energy.<br>Different price tag.</h2>
+      <div class="tabs" id="resultBudgets">
+        <button class="tab" data-tier="2k">Under ₹2K</button>
+        <button class="tab active" data-tier="5k">Under ₹5K</button>
+        <button class="tab" data-tier="10k">Under ₹10K</button>
+        <button class="tab" data-tier="treat">Treat Yourself</button>
+      </div>
+    </section>
+
+    <section class="personal">
+      <h2>Make it more you?</h2>
+      <p>Fine-tune the vibe. We’ll keep the good parts.</p>
+      <div class="pref" id="prefButtons">
+        <button>More feminine</button>
+        <button>More minimal</button>
+        <button>More trendy</button>
+        <button>More modest</button>
+        <button>More affordable</button>
+        <button>More elevated</button>
+        <button>More casual</button>
+        <button>More statement</button>
+      </div>
+    </section>
+
+    <div class="shopbar">
+      <button id="shopBtn">Shop complete look on Myntra ↗</button>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAVIGATION -->
+  <nav class="nav">
+    <button class="active" id="navHome">
+      <span style="font-size:16px">⌂</span>
+      <span>Home</span>
+    </button>
+    <button id="navDiscover">
+      <span style="font-size:16px">⌕</span>
+      <span>Discover</span>
+    </button>
+    <button class="upload-nav" id="uploadNav" aria-label="Drop a fit">
+      <span>＋</span>
+      <span>Upload</span>
+    </button>
+    <button id="navSaved">
+      <span style="font-size:16px">♡</span>
+      <span>Saved</span>
+    </button>
+    <button id="navBoards">
+      <span style="font-size:16px">▦</span>
+      <span>Boards</span>
+    </button>
+  </nav>
+
+  <!-- SAVED LOOKS DRAWER -->
+  <div class="drawer" id="savedDrawer">
+    <div class="drawer-content">
+      <div class="drawer-head">
+        <h3 id="savedClosetHeading">Saved Fits</h3>
+        <button class="close-btn" id="closeDrawerBtn">&times;</button>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:0">Your curated dream wardrobe, ready to shop.</p>
+      <div id="savedListContainer" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px"></div>
+    </div>
+  </div>
+
+  <!-- MOODBOARDS DRAWER -->
+  <div class="drawer" id="moodboardModal">
+    <div class="drawer-content">
+      <div class="drawer-head">
+        <h3>My Moodboards</h3>
+        <button class="close-btn" id="closeMoodModalBtn">&times;</button>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:0">Curate aesthetic boards for every season and trip.</p>
+      <div style="margin-top:12px">
+        <div style="display:flex;gap:8px">
+          <input id="boardNameInput" type="text" placeholder="e.g. Euro Pecan Summer, Office Siren Era" style="flex:1;padding:12px 14px;border-radius:10px;border:1px solid var(--line);font-size:13px;outline:none;background:#fff">
+          <button class="primary" id="saveBoardBtn" style="width:auto;padding:0 16px">Create ✦</button>
+        </div>
+      </div>
+      <div id="boardsListContainer" style="margin-top:20px;display:flex;flex-direction:column;gap:10px"></div>
+    </div>
+  </div>
 </main>
 
-<footer id="contact"><div class="wrap">
-<h2>Reach me out at</h2>
-<p style="margin:0"><a href="mailto:laebah03@gmail.com">laebah03@gmail.com</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/laeba-h-77339a25b/">LinkedIn</a></p>
-</div></footer>
+<!-- LOADING POLAROID OVERLAY -->
+<div class="overlay" id="loading">
+  <div class="load-screen">
+    <img id="loadImg" alt="uploaded fashion look" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=450&q=85">
+    <h2>Okay… decoding<br>the vibe.</h2>
+    <p id="loadText">Finding the pieces…</p>
+    <div class="dots">● ● ●</div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span>✦</span>
+  <span id="toastMsg">Your cart is about to eat ♡</span>
+</div>
 
 <script>
-(function(){
-var root=document.documentElement;
-try{var t=localStorage.getItem("theme");root.setAttribute("data-theme",t==="light"?"light":"dark")}catch(e){root.setAttribute("data-theme","dark")}
-document.getElementById("theme").addEventListener("click",function(){
-var n=root.getAttribute("data-theme")==="dark"?"light":"dark";root.setAttribute("data-theme",n);
-try{localStorage.setItem("theme",n)}catch(e){}});
-var plan=[["Mon","Easy run","6 km"],["Tue","Rest",""],["Wed","Intervals","5 x 800 m"],["Thu","Tempo","8 km"],["Fri","Rest",""],["Sat","Long run","14 km"],["Sun","Recovery","4 km"]];
-var ul=document.getElementById("week"),btn=document.getElementById("edit"),edited=false;
-function draw(){
-ul.innerHTML="";
-plan.forEach(function(d,i){
-var li=document.createElement("li"),a=document.createElement("span"),b=document.createElement("span"),c=document.createElement("span");
-a.textContent=d[0];b.textContent=d[1]+(d[2]?", "+d[2]:"");
-if(edited&&i===3){b.textContent="Easy run, 6 km";c.textContent="Coach edit";c.className="tag";li.className="edited"}
-else if(edited&&i===2){b.textContent="Missed";c.textContent="No run synced";c.className="tag"}
-li.appendChild(a);li.appendChild(b);li.appendChild(c);ul.appendChild(li)});
-btn.textContent=edited?"Reset to the AI draft":"Trainee missed Wednesday. Let the coach adjust."}
-btn.addEventListener("click",function(){edited=!edited;draw()});
-draw();
-})();
-</script>
-<script>
-(function(){
-var R={"":["p-home","Laeba | Product Manager"],projects:["p-home","Work | Laeba"],"coach-plan-modification":["p-coach","Coach Plan Modification | Laeba"],
-"nutrition-for-runners":["p-nutrition","Nutrition for runners | Laeba"],"coach-financial-dashboard":["p-dashboard","Coach financial dashboard | Laeba"],
-phonepe:["p-phonepe","PhonePe teardown | Laeba"],spotify:["p-spotify","Spotify teardown | Laeba"],about:["p-about","About | Laeba"],contact:["p-contact","Contact | Laeba"]};
-function go(){
-var h=location.hash.replace(/^#\/?/,""),r=R[h]||R[""];
-document.querySelectorAll(".page").forEach(function(p){p.hidden=p.id!==r[0]});
-document.title=r[1];var dd=document.querySelector(".dd");if(dd)dd.open=false;
-if(h==="projects"){var e=document.getElementById("projects");if(e)e.scrollIntoView()}else{window.scrollTo(0,0)}
-}
-document.addEventListener("click",function(e){var d=document.querySelector(".dd");if(d&&!d.contains(e.target))d.open=false});
-document.addEventListener("keydown",function(e){if(e.key==="Escape"){var d=document.querySelector(".dd");if(d)d.open=false}});
-window.addEventListener("hashchange",go);go();
-})();
-</script>
-<script>
-(function(){
-var t=document.getElementById("hTrack");if(!t)return;
-var prev=document.getElementById("hPrev"),next=document.getElementById("hNext"),dots=document.getElementById("hDots"),cards=t.children;
-var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-function step(){return cards[1].offsetLeft-cards[0].offsetLeft}
-function max(){return t.scrollWidth-t.clientWidth}
-function pos(){return Math.round(t.scrollLeft/step())}
-function count(){return Math.min(cards.length,Math.round(max()/step())+1)}
-function go(i){t.scrollTo({left:i*step(),behavior:reduce?"auto":"smooth"})}
-function update(){var p=Math.min(pos(),count()-1),d=dots.children;
-for(var i=0;i<d.length;i++)d[i].setAttribute("aria-current",i===p?"true":"false");
-prev.disabled=t.scrollLeft<=2;next.disabled=t.scrollLeft>=max()-2}
-function build(){dots.innerHTML="";
-for(var i=0;i<count();i++){var b=document.createElement("button");b.type="button";b.setAttribute("aria-label","Go to position "+(i+1));
-(function(i){b.addEventListener("click",function(){go(i)})})(i);dots.appendChild(b)}update()}
-prev.addEventListener("click",function(){go(Math.max(pos()-1,0))});
-next.addEventListener("click",function(){go(Math.min(pos()+1,count()-1))});
-t.addEventListener("scroll",update,{passive:true});
-t.addEventListener("keydown",function(e){
-if(e.key==="ArrowRight"){e.preventDefault();next.click()}
-else if(e.key==="ArrowLeft"){e.preventDefault();prev.click()}
-else if(e.key==="Home"){e.preventDefault();go(0)}
-else if(e.key==="End"){e.preventDefault();go(count()-1)}});
-var down=false,sx=0,sl=0;
-t.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse")return;down=true;sx=e.clientX;sl=t.scrollLeft;t.classList.add("drag")});
-window.addEventListener("pointermove",function(e){if(down)t.scrollLeft=sl-(e.clientX-sx)});
-window.addEventListener("pointerup",function(){if(!down)return;down=false;t.classList.remove("drag");go(pos())});
-window.addEventListener("resize",build);build();
-})();
+  /* ==========================================================================
+     DRESSERIE: ORIGINAL SIGNATURE DESIGN + SERVERLESS REAL AI SEARCH ENGINE
+     ========================================================================== */
+
+  // Store URL Builders
+  const storeSearchUrls = {
+    myntra: (q) => `https://www.myntra.com/${encodeURIComponent(q.replace(/\s+/g, '-'))}`,
+    ajio: (q) => `https://www.ajio.com/search/?text=${encodeURIComponent(q)}`,
+    zara: (q) => `https://www.zara.com/in/en/search?searchTerm=${encodeURIComponent(q)}`,
+    savana: (q) => `https://www.google.com/search?q=${encodeURIComponent('site:savana.com ' + q)}`
+  };
+
+  // Curated Catalog Tiers
+  const productCatalog = {
+    '2k': {
+      total: '₹1,847',
+      items: [
+        { cat: 'Top', name: 'Ribbed Lace Camisole', store: 'Savana', price: '₹499', query: 'white lace trim cami top', img: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Bottom', name: 'Pleated Mini Tennis Skirt', store: 'Urbanic', price: '₹599', query: 'pleated tennis skirt white', img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Shoes', name: 'Bow Ballet Flats', store: 'Bata', price: '₹499', query: 'ballet flats bow shoes', img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Jewelry', name: 'Pebble Pearl Choker', store: 'Myntra', price: '₹250', query: 'pearl choker necklace', img: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=250&q=80' }
+      ]
+    },
+    '5k': {
+      total: '₹4,897',
+      items: [
+        { cat: 'Top', name: 'Lace Trim Milkmaid Top', store: 'Mango India', price: '₹1,499', query: 'white lace trim top mango', img: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Bottom', name: 'Low-Rise Denim Mini Skirt', store: 'Newme', price: '₹1,299', query: 'denim mini skirt blue', img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Shoes', name: 'Double-Strap Mary Janes', store: 'Mochi', price: '₹1,499', query: 'black mary jane flats mochi', img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Bag', name: 'Mini Shoulder Baguette', store: 'Lavie', price: '₹600', query: 'mini baguette shoulder bag', img: 'https://images.unsplash.com/photo-1585488434455-5f80ef1f8cbe?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Jewelry', name: 'Gold Chunky Hoops', store: 'Myntra', price: '₹349', query: 'gold chunky hoop earrings', img: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=250&q=80' }
+      ]
+    },
+    '10k': {
+      total: '₹8,990',
+      items: [
+        { cat: 'Top', name: 'Embroidered Corset Blouse', store: 'Zara India', price: '₹2,990', query: 'corset blouse embroidery zara', img: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Bottom', name: 'Raw Hem Denim Skirt', store: 'Levi’s', price: '₹2,790', query: 'levis denim skirt raw hem', img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Shoes', name: 'Patent Chunky Mary Janes', store: 'Myntra', price: '₹1,999', query: 'chunky patent mary jane shoes', img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Bag', name: 'Baguette Leather Pouch', store: 'Mango India', price: '₹2,199', query: 'leather baguette bag mango', img: 'https://images.unsplash.com/photo-1585488434455-5f80ef1f8cbe?auto=format&fit=crop&w=250&q=80' }
+      ]
+    },
+    'treat': {
+      total: '₹22,450',
+      items: [
+        { cat: 'Top', name: 'Silk Georgette Camisole', store: 'Mango Premium', price: '₹6,500', query: 'silk georgette camisole top', img: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Bottom', name: 'Designer Pleated Skort', store: 'Zara Premium', price: '₹4,990', query: 'pleated skort structured', img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=250&q=80' },
+        { cat: 'Shoes', name: 'Leather Mary Jane Heels', store: 'Steve Madden', price: '₹7,999', query: 'steve madden mary jane shoes', img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=250&q=80' }
+      ]
+    }
+  };
+
+  let currentTier = '5k';
+  let detectedGarmentsList = [];
+
+  // Render Product Row
+  function renderProducts(containerId, tier = '5k') {
+    const data = productCatalog[tier] || productCatalog['5k'];
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = data.items.map(p => `
+      <article class="prod">
+        <div class="prod-img-wrap">
+          <img src="${p.img}" alt="${p.name}" loading="lazy">
+        </div>
+        <div class="prod-info">
+          <small>${p.cat} · ${p.store}</small>
+          <b>${p.name}</b>
+          <div class="prod-price-row">
+            <span>${p.price}</span>
+            <a href="${storeSearchUrls.myntra(p.query)}" target="_blank" rel="noopener" class="prod-buy-btn">
+              Shop ↗
+            </a>
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    if (containerId === 'demoProducts') {
+      document.getElementById('demoTotal').textContent = data.total;
+    } else if (containerId === 'resultProducts') {
+      document.getElementById('resultTotal').textContent = data.total;
+    }
+  }
+
+  // Render Live Garment Search Tags
+  function renderLiveSearchTags(pieces) {
+    const container = document.getElementById('garmentSearchTags');
+    if (!pieces || pieces.length === 0) {
+      pieces = [
+        { name: 'White lace trim cami top', query: 'lace cami top white' },
+        { name: 'Low-rise denim mini skirt', query: 'denim mini skirt blue' },
+        { name: 'Mary Jane platform flats', query: 'mary jane flats black' },
+        { name: 'Mini baguette shoulder bag', query: 'mini baguette shoulder bag' }
+      ];
+    }
+    detectedGarmentsList = pieces;
+
+    container.innerHTML = pieces.map(p => `
+      <div class="garment-tag-card">
+        <div class="left">
+          <b>${p.name}</b>
+          <span>${p.category || 'Identified Piece'}</span>
+        </div>
+        <div class="store-links">
+          <a href="${storeSearchUrls.myntra(p.query || p.searchQuery)}" target="_blank" rel="noopener" class="store-quick-link">Myntra ↗</a>
+          <a href="${storeSearchUrls.ajio(p.query || p.searchQuery)}" target="_blank" rel="noopener" class="store-quick-link">Ajio ↗</a>
+          <a href="${storeSearchUrls.zara(p.query || p.searchQuery)}" target="_blank" rel="noopener" class="store-quick-link">Zara ↗</a>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Toast
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    if (msg) toastMsg.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2600);
+  }
+
+  // LocalStorage Helpers
+  function getSavedCloset() {
+    try { return JSON.parse(localStorage.getItem('dresserie_saved') || '[]'); } catch(e) { return []; }
+  }
+
+  function saveClosetItem(item) {
+    const list = getSavedCloset();
+    list.unshift(item);
+    localStorage.setItem('dresserie_saved', JSON.stringify(list));
+    updateSavedBadge();
+  }
+
+  function getMoodboards() {
+    try { return JSON.parse(localStorage.getItem('dresserie_boards') || '["Euro Pecan Summer", "Office Siren Era", "Date Night Inspo"]'); } catch(e) { return ["Euro Pecan Summer", "Office Siren Era"]; }
+  }
+
+  function saveMoodboard(name) {
+    const list = getMoodboards();
+    if (!list.includes(name)) list.unshift(name);
+    localStorage.setItem('dresserie_boards', JSON.stringify(list));
+  }
+
+  function updateSavedBadge() {
+    const count = getSavedCloset().length || 2;
+    document.getElementById('savedBadge').textContent = count;
+  }
+
+  // Populate initial closet if empty
+  if (!localStorage.getItem('dresserie_saved')) {
+    localStorage.setItem('dresserie_saved', JSON.stringify([
+      { title: 'Coquette Summer Fit', img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=300&q=80', price: '₹4,897 · 5 items' },
+      { title: 'Downtown Trench Dupe', img: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=300&q=80', price: '₹6,200 · 3 items' }
+    ]));
+  }
+  updateSavedBadge();
+
+  // Call Serverless Backend (/api/analyze)
+  async function callServerlessAI(base64Data, mimeType) {
+    try {
+      const res = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: base64Data, mimeType })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        console.error('API error:', data);
+        showToast(`⚠ ${data.error || 'Server error'}`);
+        return null;
+      }
+
+      return data;
+    } catch(e) {
+      console.error('Backend unavailable:', e);
+      showToast('⚠ Backend not reachable — showing demo data');
+      return null;
+    }
+  }
+
+  // File to Base64
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Open Loading Transition
+  async function openLoad(src = null, fileBlob = null) {
+    const loadImg = document.getElementById('loadImg');
+    const resultImg = document.getElementById('resultImg');
+    if (src) {
+      loadImg.src = src;
+      resultImg.src = src;
+    }
+
+    const loadScreen = document.getElementById('loading');
+    const loadText = document.getElementById('loadText');
+    loadScreen.classList.add('show');
+    loadText.textContent = 'Scanning garment silhouettes…';
+
+    let aiData = null;
+    if (fileBlob) {
+      try {
+        const base64 = await fileToBase64(fileBlob);
+        loadText.textContent = 'Sending to Vision AI… ✦';
+        aiData = await callServerlessAI(base64, fileBlob.type);
+        if (aiData && aiData.pieces) {
+          loadText.textContent = `Found ${aiData.pieces.length} garment pieces!`;
+        } else {
+          loadText.textContent = 'AI unavailable — showing demo results…';
+        }
+      } catch(e) {
+        loadText.textContent = 'Connection issue — showing demo results…';
+      }
+    }
+
+    setTimeout(() => {
+      loadText.textContent = 'Building your shoppable links…';
+    }, 1200);
+
+    setTimeout(() => {
+      loadScreen.classList.remove('show');
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('results').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      const aiBadge = document.getElementById('aiStatusText');
+
+      if (aiData && aiData.pieces && aiData.pieces.length > 0) {
+        // REAL AI RESULTS — garments identified by Gemini Vision
+        document.getElementById('resultVibe').textContent = aiData.outfitTitle || aiData.aestheticVibe || 'Decoded Fit';
+        document.getElementById('resultChips').innerHTML = aiData.pieces.map(p => `<span class="chip">${p.name}</span>`).join('');
+        renderLiveSearchTags(aiData.pieces);
+        if (aiBadge) aiBadge.textContent = `AI decoded ${aiData.pieces.length} pieces ✦`;
+        showToast(`Found ${aiData.pieces.length} pieces! Tap store links to shop ♡`);
+      } else {
+        // FALLBACK — demo data
+        renderLiveSearchTags();
+        if (aiBadge) aiBadge.textContent = 'Demo mode (deploy to enable AI)';
+        showToast('Demo mode — deploy on Vercel for real AI detection');
+      }
+
+      renderProducts('resultProducts', currentTier);
+    }, 2200);
+  }
+
+  // Hero Prompt Stack Interactions
+  const promptStack = document.querySelector('.prompt-stack');
+  if (promptStack) {
+    const scribbleNote = document.getElementById('cloudNote');
+    const vibeMessages = {
+      'date-night': 'date-night plans, solved ♡',
+      'screenshot': 'screenshot match ready ✦',
+      'budget': 'same vibe, less damage 🏷',
+      'core': 'let’s find your next obsession ✦'
+    };
+
+    promptStack.querySelectorAll('.prompt-card').forEach(card => {
+      card.addEventListener('click', () => {
+        promptStack.querySelectorAll('.prompt-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        const vibe = card.dataset.vibe;
+        scribbleNote.textContent = vibeMessages[vibe] || 'okay, cute choice ♡';
+
+        const destinations = {
+          'screenshot': '#dropZone',
+          'date-night': '.demo',
+          'budget': '#home .budget',
+          'core': '#home .cores'
+        };
+
+        const target = document.querySelector(destinations[vibe]);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  // File Upload Handlers
+  const fileInput = document.getElementById('file');
+  const cameraInput = document.getElementById('cameraFile');
+  const dropBtn = document.getElementById('dropBtn');
+  const cameraBtn = document.getElementById('cameraBtn');
+  const dropZone = document.getElementById('dropZone');
+  const tryBtn = document.getElementById('tryBtn');
+  const uploadNav = document.getElementById('uploadNav');
+
+  dropBtn.onclick = () => fileInput.click();
+  uploadNav.onclick = () => fileInput.click();
+  cameraBtn.onclick = () => cameraInput.click();
+  tryBtn.onclick = () => openLoad();
+
+  function handleFile(file) {
+    if (!file) return;
+    const previewUrl = URL.createObjectURL(file);
+    openLoad(previewUrl, file);
+  }
+
+  fileInput.onchange = (e) => { if (e.target.files?.[0]) handleFile(e.target.files[0]); };
+  cameraInput.onchange = (e) => { if (e.target.files?.[0]) handleFile(e.target.files[0]); };
+
+  // Drag and drop
+  ['dragenter', 'dragover'].forEach(n => {
+    dropZone.addEventListener(n, (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+  });
+  ['dragleave', 'drop'].forEach(n => {
+    dropZone.addEventListener(n, (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); });
+  });
+  dropZone.addEventListener('drop', (e) => {
+    if (e.dataTransfer.files?.[0]) handleFile(e.dataTransfer.files[0]);
+  });
+
+  // Global Clipboard Screenshot Paste (Ctrl+V)
+  window.addEventListener('paste', (e) => {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type.indexOf('image') !== -1) {
+        const blob = items[i].getAsFile();
+        showToast('Pasted screenshot detected! ✦');
+        handleFile(blob);
+        break;
+      }
+    }
+  });
+
+  // Back Button from Results
+  document.getElementById('backBtn').onclick = () => {
+    document.getElementById('results').classList.remove('show');
+    document.getElementById('home').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  // Budget Switcher
+  function setupBudgetTabs(selector, targetContainer) {
+    const parent = document.querySelector(selector);
+    if (!parent) return;
+
+    parent.addEventListener('click', (e) => {
+      const tab = e.target.closest('.tab');
+      if (!tab) return;
+      parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentTier = tab.dataset.tier;
+      renderProducts(targetContainer, currentTier);
+      showToast(`Showing ${tab.textContent} options 🏷`);
+    });
+  }
+
+  setupBudgetTabs('#budgets', 'demoProducts');
+  setupBudgetTabs('#resultBudgets', 'resultProducts');
+
+  // Alternative Quick Tweaks
+  document.querySelectorAll('.alt-actions .alt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tweak = btn.dataset.tweak;
+      if (tweak === 'cheaper') {
+        renderProducts('demoProducts', '2k');
+        document.querySelectorAll('#budgets .tab').forEach(t => t.classList.toggle('active', t.dataset.tier === '2k'));
+        showToast('Dupe activated! Under ₹2K version loaded 🏷');
+      } else if (tweak === 'elevated') {
+        renderProducts('demoProducts', '10k');
+        document.querySelectorAll('#budgets .tab').forEach(t => t.classList.toggle('active', t.dataset.tier === '10k'));
+        showToast('Upgraded with premium silk & structured tailoring ✦');
+      } else if (tweak === 'vibe') {
+        document.getElementById('demoVibeTitle').textContent = 'Office Siren · Minimal · Sharp';
+        document.getElementById('demoChips').innerHTML = `
+          <span class="chip">pleated trousers</span>
+          <span class="chip">sheer knit top</span>
+          <span class="chip">pointed slingbacks</span>
+          <span class="chip">tortoise frames</span>
+        `;
+        showToast('Shifted aesthetic to Office Siren ✦');
+      }
+    });
+  });
+
+  // Core Cards Interaction
+  document.querySelectorAll('.core').forEach(core => {
+    core.addEventListener('click', () => {
+      const coreName = core.querySelector('b').textContent;
+      showToast(`Exploring the ${coreName} archive… ✦`);
+      setTimeout(() => openLoad(core.querySelector('img').src), 350);
+    });
+  });
+
+  // Obsessed Cards Interaction
+  document.querySelectorAll('.feed-card').forEach(card => {
+    card.addEventListener('click', () => {
+      openLoad(card.dataset.img);
+    });
+  });
+
+  // "Make it more you?" preference chips
+  document.querySelectorAll('#prefButtons button').forEach(b => {
+    b.addEventListener('click', () => {
+      b.classList.toggle('active');
+      showToast(b.classList.contains('active') ? `Added: "${b.textContent}"` : `Removed: "${b.textContent}"`);
+    });
+  });
+
+  // Drawers & Modals
+  const savedDrawer = document.getElementById('savedDrawer');
+  const moodModal = document.getElementById('moodboardModal');
+  const openDrawer = (d) => d.classList.add('show');
+  const closeDrawer = (d) => d.classList.remove('show');
+
+  document.getElementById('openSavedBtn').onclick = () => { renderSavedCloset(); openDrawer(savedDrawer); };
+  document.getElementById('navSaved').onclick = () => { renderSavedCloset(); openDrawer(savedDrawer); };
+  document.getElementById('closeDrawerBtn').onclick = () => closeDrawer(savedDrawer);
+
+  document.getElementById('openMoodboardBtn').onclick = () => { renderBoardsList(); openDrawer(moodModal); };
+  document.getElementById('actionBoard').onclick = () => { renderBoardsList(); openDrawer(moodModal); };
+  document.getElementById('navBoards').onclick = () => { renderBoardsList(); openDrawer(moodModal); };
+  document.getElementById('closeMoodModalBtn').onclick = () => closeDrawer(moodModal);
+
+  // Render Saved Closet Drawer
+  function renderSavedCloset() {
+    const list = getSavedCloset();
+    const container = document.getElementById('savedListContainer');
+    document.getElementById('savedClosetHeading').textContent = `Saved Fits (${list.length})`;
+
+    if (list.length === 0) {
+      container.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:30px;color:var(--muted)">No saved fits yet. Upload a look to save it! ♡</div>`;
+      return;
+    }
+
+    container.innerHTML = list.map((item, idx) => `
+      <div style="background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <img src="${item.img}" style="height:140px;width:100%;object-fit:cover">
+          <b style="font-size:12px;display:block;padding:8px 8px 0;line-height:1.2">${item.title}</b>
+          <span style="font:600 10.5px 'DM Mono',monospace;color:var(--red);padding:3px 8px;display:block">${item.price || '₹4,897'}</span>
+        </div>
+        <div style="padding:4px 8px 8px;display:flex;justify-content:space-between;align-items:center">
+          <button onclick="removeSavedItem(${idx})" style="font-size:10px;color:var(--muted)">Delete</button>
+          <button onclick="openLoad('${item.img}')" style="font-size:10.5px;font-weight:600;color:var(--red)">View ↗</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  window.removeSavedItem = function(idx) {
+    const list = getSavedCloset();
+    list.splice(idx, 1);
+    localStorage.setItem('dresserie_saved', JSON.stringify(list));
+    renderSavedCloset();
+    updateSavedBadge();
+    showToast('Look removed from closet');
+  };
+
+  // Render Boards List
+  function renderBoardsList() {
+    const boards = getMoodboards();
+    const container = document.getElementById('boardsListContainer');
+    container.innerHTML = boards.map(b => `
+      <div style="background:#fff;padding:12px 14px;border-radius:12px;border:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <b style="font-size:13px;display:block">${b}</b>
+          <small style="font-size:10.5px;color:var(--muted)">Tap to add current look</small>
+        </div>
+        <button onclick="addLookToBoard('${b}')" style="background:var(--yellow);color:var(--brown);font:600 11px 'DM Mono',monospace;padding:6px 10px;border-radius:8px">
+          + Add
+        </button>
+      </div>
+    `).join('');
+  }
+
+  window.addLookToBoard = function(boardName) {
+    closeDrawer(moodModal);
+    showToast(`Added current fit to "${boardName}" ♡`);
+  };
+
+  document.getElementById('saveBoardBtn').onclick = () => {
+    const input = document.getElementById('boardNameInput');
+    const val = input.value.trim();
+    if (!val) return;
+    saveMoodboard(val);
+    input.value = '';
+    renderBoardsList();
+    showToast(`Board "${val}" created ✦`);
+  };
+
+  // Save Fit Button Action
+  const saveActions = [document.getElementById('actionSave'), document.getElementById('saveFitBtn')];
+  saveActions.forEach(btn => {
+    if (!btn) return;
+    btn.onclick = () => {
+      btn.style.color = 'var(--red)';
+      btn.textContent = '♥ Saved';
+      const look = {
+        id: Date.now().toString(),
+        title: document.getElementById('resultVibe').textContent || 'Curated Fit',
+        img: document.getElementById('resultImg').src,
+        price: document.getElementById('resultTotal').textContent
+      };
+      saveClosetItem(look);
+      showToast('Saved to your dream closet ♡');
+    };
+  });
+
+  // Shop CTA Button
+  document.getElementById('shopBtn').onclick = () => {
+    if (detectedGarmentsList.length > 0) {
+      const q = detectedGarmentsList[0].query || detectedGarmentsList[0].searchQuery || 'coquette outfit';
+      window.open(storeSearchUrls.myntra(q), '_blank');
+    } else {
+      window.open('https://www.myntra.com/women-clothing', '_blank');
+    }
+  };
+
+  // Share CTA
+  document.getElementById('actionShare').onclick = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'dresserie — Found the fit',
+        text: `Check out this outfit dupe found on dresserie!`,
+        url: window.location.href
+      }).catch(() => {});
+    } else {
+      navigator.clipboard?.writeText(window.location.href);
+      showToast('Link copied to clipboard! Share with your bestie ✦');
+    }
+  };
+
+  // Nav Home
+  document.getElementById('navHome').onclick = () => {
+    document.getElementById('results').classList.remove('show');
+    document.getElementById('home').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  document.getElementById('navDiscover').onclick = () => {
+    document.getElementById('home').querySelector('.obsessed').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Initial Product Render
+  renderProducts('demoProducts', '5k');
+  renderProducts('resultProducts', '5k');
 </script>
 </body>
 </html>
